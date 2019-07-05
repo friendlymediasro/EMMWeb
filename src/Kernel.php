@@ -1,10 +1,11 @@
 <?php
 
-namespace App;
+namespace EMMWeb;
 
-use App\DependencyInjection\Compiler\ParametersPass;
-use App\DependencyInjection\Compiler\TranslatorPass;
-use App\DependencyInjection\Compiler\TwigPass;
+use EMMWeb\DependencyInjection\Compiler\ParametersPass;
+use EMMWeb\DependencyInjection\Compiler\TranslatorPass;
+use EMMWeb\DependencyInjection\Compiler\TwigPass;
+use EMMWeb\Util\Theme;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -35,8 +36,7 @@ class Kernel extends BaseKernel
 
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
     {
-	    $container->setParameter('global_themes_public_dir', '/themes'); //public/themes/THEME_NAME/assets
-	    $container->setParameter('global_themes_dir', $this->getProjectDir().'/themes'); //themes/templates-translations-config-public
+	    $container->setParameter('themes_source_dir', $this->getProjectDir().Theme::THEMES_SOURCE_DIR);
 
 	    $container->addCompilerPass(new ParametersPass());
 	    $container->addCompilerPass(new TwigPass());

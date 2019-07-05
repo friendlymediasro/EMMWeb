@@ -1,7 +1,7 @@
 <?php
 
-use App\CacheKernel;
-use App\Kernel;
+use EMMWeb\CacheKernel;
+use EMMWeb\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 

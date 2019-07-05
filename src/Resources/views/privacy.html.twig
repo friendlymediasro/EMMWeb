@@ -1,0 +1,8 @@
+{% extends '@theme/layout.html.twig' %}
+
+{% block title %}{{ 'privacy.title'|themeTrans({}, 'privacy') }}{% endblock %}
+
+{% block body %}
+    <h2><strong>{{ 'privacy.heading'|themeTrans({'%app_name%': app_name}, 'privacy') }}</strong></h2>
+    {{ 'privacy.html'|themeTrans({'%app_name%': app_name, '%app_website_name%': app_website_name, '%app_website_url%': app_website_url}, 'privacy') }}
+{% endblock %}

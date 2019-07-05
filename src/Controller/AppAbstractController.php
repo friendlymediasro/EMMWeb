@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controller;
+namespace EMMWeb\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Util\ApiConnect;
-use App\Util\HttpCache;
+use EMMWeb\Util\ApiConnect;
+use EMMWeb\Util\HttpCache;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\Response;
 use WyriHaximus\HtmlCompress\Factory;

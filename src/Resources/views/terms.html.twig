@@ -1,0 +1,8 @@
+{% extends '@theme/layout.html.twig' %}
+
+{% block title %}{{ 'terms.title'|themeTrans({}, 'terms') }}{% endblock %}
+
+{% block body %}
+    <h2><strong>{{ 'terms.heading'|themeTrans({}, 'terms') }}</strong></h2>
+    {{ 'terms.html'|themeTrans({'%pathPrivacy%' : path('app_privacy'), '%app_name%': app_name, '%app_website_name%': app_website_name, '%app_website_url%': app_website_url}, 'terms') }}
+{% endblock %}

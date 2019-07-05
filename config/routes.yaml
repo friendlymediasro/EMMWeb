@@ -1,7 +1,7 @@
 app_pages:
   resource: 'app_pages.yaml'
-  controller: App\Controller\AppController::page
+  controller: EMMWeb\Controller\AppController::page
 
 app_items:
   resource: 'app_items.yaml'
-  controller: App\Controller\AppController::item
+  controller: EMMWeb\Controller\AppController::item

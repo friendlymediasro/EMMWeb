@@ -1,10 +1,19 @@
 <?php
 
-namespace App\Util;
-
+namespace EMMWeb\Util;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * {{ variable }} outputs variable value
+ * {{ variable.value }} outputs variable value from array, VAR_SEPARATOR is '.'
+ * {{ #variable }} outputs variable value, appends delimiter after output
+ * {% #var1 XxX var2 %} block outputs its content only if every variable in it is set and not empty
+ * {{ #authors[1].name }} outputs elements from array with limit [limit],
+ * if variable is string (not array) limit [limit] is number of words or characters depends on option "trim_on_word"
+ * todo simple if else {? {% season episode tvShowForEpisode.name %} :: name ?}
+ * todo functions? @!seoTvShow(season, episode)
+ */
 class Seo
 {
 

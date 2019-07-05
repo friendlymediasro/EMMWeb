@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Twig;
+namespace EMMWeb\Twig;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -24,9 +24,7 @@ class TwigExtension extends AbstractExtension
 	        new TwigFunction('activeNav', [AppRuntime::class, 'activeNav']),
 	        new TwigFunction('title', [AppRuntime::class, 'title']),
 	        new TwigFunction('description', [AppRuntime::class, 'description']),
-	        new TwigFunction('googleAnalytics', [AppRuntime::class, 'googleAnalytics']),
-	        new TwigFunction('histats', [AppRuntime::class, 'histats']),
-	        new TwigFunction('cookieConsent', [AppRuntime::class, 'cookieConsent']),
+	        new TwigFunction('hracikAvatar', [AppRuntime::class, 'hracikAvatar']),
         );
     }
 

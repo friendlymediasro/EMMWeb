@@ -7,7 +7,11 @@
         "ext-iconv": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "hracik/php-create-image-from-text": "^0.0.1",
+        "hracik/php-create-avatar-from-text": "0.1.*",
+        "hracik/php-create-image-from-text": "0.1.*",
+        "hracik/php-recognize-average-color-from-image": "0.0.*",
+        "patchwork/jsqueeze": "^2.0",
+        "scssphp/scssphp": "^1.0",
         "symfony/console": "4.3.*",
         "symfony/dotenv": "4.3.*",
         "symfony/flex": "^1.1",
@@ -27,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "EMMWeb\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "EMMWeb\\Tests\\": "tests/"
         }
     },
     "replace": {
@@ -46,7 +50,7 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "themeAssets:install": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -62,6 +66,10 @@
         "symfony": {
             "allow-contrib": false,
             "require": "4.3.*"
+        },
+        "installer-types": ["emm-theme"],
+        "installer-paths": {
+            "themes/{$name}": ["type:emm-theme"]
         }
     },
     "require-dev": {

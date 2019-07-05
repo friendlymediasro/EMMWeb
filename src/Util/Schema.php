@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Util;
-
+namespace EMMWeb\Util;
 
 use Exception;
 use Symfony\Component\Routing\RouterInterface;

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="en">
+  <file id="error.en">
+    <unit id="error">
+      <segment>
+        <source>error.title</source>
+        <target>An Error Occurred: %status_text%</target>
+      </segment>
+      <segment>
+        <source>error.heading</source>
+        <target>Oops! An Error Occurred</target>
+      </segment>
+      <segment>
+        <source>error.subheading0</source>
+        <target>The server returned a "%status_code% %status_text%".</target>
+      </segment>
+      <segment>
+        <source>error.paragraph0</source>
+        <target>
+          Something is broken. Please let us know what you were doing when this error occurred.
+          We will fix it as soon as possible. Sorry for any inconvenience caused.
+        </target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

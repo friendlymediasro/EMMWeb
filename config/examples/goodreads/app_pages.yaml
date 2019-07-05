@@ -1,0 +1,37 @@
+#add/remove page in administration
+#create name, set path, choose template, choose API parameters if needed, use name in template
+#bum bum result is this routes.yaml file..
+app_index:
+    path: /
+    defaults:
+        template: 'index.html.twig'
+        APIParameters:
+            extra:
+                popularBooks:
+                    parameters:
+                        limit: 7
+                    properties: ['imageSrc']
+                latestBooks:
+                    parameters:
+                        limit: 10
+                    properties: ['imageSrc']
+app_contact:
+    path: /contact
+    defaults:
+        template: 'contact.html.twig'
+app_terms:
+    path: /terms
+    defaults:
+        template: 'terms.html.twig'
+app_privacy:
+    path: /privacy
+    defaults:
+        template: 'privacy.html.twig'
+app_disclaimer:
+    path: /disclaimer
+    defaults:
+        template: 'disclaimer.html.twig'
+app_dmca:
+    path: /dmca
+    defaults:
+        template: 'dmca.html.twig'

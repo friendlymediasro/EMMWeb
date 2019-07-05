@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Twig;
+namespace EMMWeb\Twig;
 
-use App\Util\Functions;
-use App\Util\Schema;
-use App\Util\Seo;
+use EMMWeb\Util\Functions;
+use EMMWeb\Util\Schema;
+use EMMWeb\Util\Seo;
+use EMMWeb\Util\Theme;
+use Hracik\CreateAvatarFromText\CreateAvatarFromText;
+use Hracik\CreateImageFromText\CreateImageFromText;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Twig\Extension\RuntimeExtensionInterface;
-use Hracik\CreateImageFromText\CreateImageFromText;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Twig\Extension\RuntimeExtensionInterface;
 use Twig\Markup;
 
 class AppRuntime implements RuntimeExtensionInterface
@@ -67,17 +69,28 @@ class AppRuntime implements RuntimeExtensionInterface
 	}
 
 	/**
-	 * @param $src
+	 * @param $sources
 	 * @param $itemSettingName
 	 * @return mixed
 	 */
-	public function displayImage($src, $itemSettingName)
+	public function displayImage($sources, $itemSettingName)
 	{
 		$settings = $this->getItemSettings($itemSettingName);
-		if (isset($settings['external_images']) && $settings['external_images'] === true && $src !== null) {
-			return $src;
+		if (isset($settings['external_images']) && $settings['external_images'] === true) {
+			if (is_array($sources)) {
+				foreach ($sources as $source) {
+					if (is_string($source)) {
+						return $source;
+					}
+				}
+			}
+
+			if (is_string($sources)) {
+				return $sources;
+			}
 		}
-		elseif (isset($settings['default_image_file'])) {
+
+		if (isset($settings['default_image_file'])) {
 			return $this->themeAsset('images/'.  $settings['default_image_file']);
 		}
 
@@ -104,6 +117,15 @@ class AppRuntime implements RuntimeExtensionInterface
 		return '';
 	}
 
+	/**
+	 * @param string $string
+	 * @return Markup
+	 */
+	public function hracikAvatar(string $string): Markup
+	{
+		$svg = CreateAvatarFromText::getAvatar($string, ['size' => 64, 'text-case' => 'upper', 'text-modification' => 'pseudo', 'font-weight' => 'normal', 'color-scheme' => 'light']);
+		return new Markup($svg, 'UTF-8');
+	}
 	/**
 	 * @param $key
 	 * @param $name
@@ -221,53 +243,6 @@ class AppRuntime implements RuntimeExtensionInterface
 	}
 
 	/**
-	 * @return string|Markup
-	 */
-	public function histats()
-	{
-		if ($this->parameterBag->get('app_histats') !== null) {
-			$script = sprintf('
-			<!-- Histats.com  START  (aync)-->
-	        <script type="text/javascript">var _Hasync = _Hasync || [];
-	            _Hasync.push(["Histats.start", "1,{{ histats }},4,0,0,0,00010000"]);
-	            _Hasync.push(["Histats.fasi", "1"]);
-	            _Hasync.push(["Histats.track_hits", ""]);
-	            (function () {
-	                var hs = document.createElement("script");
-	                hs.type ="text/javascript";
-	                hs.async = true;
-	                hs.src = ("//s10.histats.com/js15_as.js");
-	                (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(hs);
-	            })();
-	        </script>
-	        <noscript>
-	            <a href="/" target="_blank">
-	                <img src="//sstatic1.histats.com/0.gif?{{ histats }}&101" alt="free webpage hit counter" border="0">
-	            </a>
-	        </noscript>
-	        <!-- Histats.com  END  -->');
-			return new Markup($script, 'UTF-8');
-		}
-
-		return '';
-	}
-
-	/**
-	 * @return string|Markup
-	 */
-	public function cookieConsent()
-	{
-		if ($this->parameterBag->get('app_cookie_consent') === true) {
-			$html = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q=" crossorigin="anonymous" />
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js" integrity="sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" crossorigin="anonymous"></script>
-			<script>window.addEventListener("load", function(){window.cookieconsent.initialise({"palette": {"popup": {"background": "#000"},"button": {"background": "#f1d600"}}})});</script>';
-			return new Markup($html, 'UTF-8');
-		}
-
-		return '';
-	}
-
-	/**
 	 * @param       $message
 	 * @param array $arguments
 	 * @param null  $domain
@@ -292,10 +267,9 @@ class AppRuntime implements RuntimeExtensionInterface
 
 	/**
 	 * @param string $path
-	 * @param bool   $forceParent
 	 * @return string
 	 */
-	public function themeAsset(string $path, $forceParent = false) :string
+	public function themeAsset(string $path) :string
 	{
 		$parentTheme = $this->parameterBag->get('app_parent_theme');
 		//in case of use CDN, app_asset_base_url parameter is used with parent theme and asset version
@@ -303,22 +277,7 @@ class AppRuntime implements RuntimeExtensionInterface
 			return sprintf('%s/%s/%s/%s', $this->parameterBag->get('app_asset_base_url'), $parentTheme, $this->parameterBag->get('app_asset_version'), $path);
 		};
 
-		$theme = $this->parameterBag->get('app_theme');
-		//get assetPath from child if exists, if not then from parent ..
-		if ($parentTheme != $theme && $forceParent !== true) {
-			$fromTheme = $theme;
-		}
-		else {
-			$fromTheme = $parentTheme;
-		}
-
-		$assetPath = sprintf('%s/%s/%s/%s', $this->parameterBag->get('global_themes_public_dir'), $fromTheme, $this->parameterBag->get('app_asset_version'), $path);
-		if ($fromTheme !== $parentTheme && !file_exists($this->parameterBag->get('kernel.project_dir').'/public'.$assetPath)) {
-			return $this->themeAsset($path, true);
-		}
-		else {
-			return $assetPath;
-		}
+		return sprintf('%s/%s/%s/%s', Theme::THEMES_PUBLIC_DIR, $parentTheme, $this->parameterBag->get('app_asset_version'), $path);
 	}
 
 	/**

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="en">
+  <file id="navigation.en">
+    <unit id="navigation">
+      <segment>
+        <source>nav.toggle</source>
+        <target>Toggle navigation</target>
+      </segment>
+      <segment>
+        <source>nav.home</source>
+        <target>Home</target>
+      </segment>
+      <segment>
+        <source>nav.contact</source>
+        <target>Contact</target>
+      </segment>
+      <segment>
+        <source>nav.terms</source>
+        <target>Terms</target>
+      </segment>
+      <segment>
+        <source>nav.privacy</source>
+        <target>Privacy</target>
+      </segment>
+      <segment>
+        <source>nav.disclaimer</source>
+        <target>Disclaimer</target>
+      </segment>
+      <segment>
+        <source>nav.dmca</source>
+        <target>DMCA</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

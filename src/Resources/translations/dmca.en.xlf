@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="en">
+  <file id="dmca.en">
+    <unit id="dmca">
+      <segment>
+        <source>dmca.title</source>
+        <target>DMCA/Copyright Infringement Notification Guidelines</target>
+      </segment>
+      <segment>
+        <source>dmca.heading</source>
+        <target>DMCA/Copyright Infringement Notification Guidelines</target>
+      </segment>
+      <segment>
+        <source>dmca.paragraph0.html</source>
+        <target>To report infringing or abusive content you can use email address %email%.</target>
+      </segment>
+      <segment>
+        <source>dmca.paragraph1.html</source>
+        <target><![CDATA[<b>Digital Millennium Copyright Act Compliance</b>. It is %app_name%’s policy to respond
+          to notices of alleged infringement that comply with the Digital Millennium
+          Copyright Act. If you are a copyright owner or an agent thereof,
+          and you believe that any content hosted on the %app_website_name% infringes
+          your copyrights, then you may submit a notification pursuant to the
+          Digital Millennium Copyright Act (“DMCA”) by providing %app_name%’s
+          Designated Copyright Agent with the following information in writing:]]>
+        </target>
+      </segment>
+      <segment>
+        <source>dmca.paragraph2.html</source>
+        <target><![CDATA[%app_name%’s Designated
+          Copyright Agent to receive notifications of claimed infringement can
+          be reached as follows:<br><br>
+          Email: %email%<br>
+          Only DMCA-related notifications should be sent to %app_name%’s Designated Copyright Agent.]]>
+        </target>
+      </segment>
+      <segment>
+        <source>dmca.paragraph3.html</source>
+        <target>If you fail to comply with all of the requirements of the DMCA for notifications, we may not act on your communication.</target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item0.html</source>
+        <target>A physical or electronic signature of a person authorized to act on behalf of the owner
+          of an exclusive right that is allegedly infringed;</target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item1.html</source>
+        <target>Identification of the copyrighted work claimed to have been infringed, or, if multiple
+          copyrighted works on the %app_website_name% are covered by a single notification,
+          a representative list of such works on the %app_website_name%;</target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item2.html</source>
+        <target>Identification of the material that is claimed to be infringing or to be the subject
+          of infringing activity and that is to be removed or access to which
+          is to be disabled, and information reasonably sufficient to permit %app_name%
+          to locate the material;</target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item3.html</source>
+        <target>Information reasonably sufficient to permit %app_name% to contact the complaining party,
+          such as an address, telephone number, and, if available, an electronic
+          mail address at which the complaining party may be contacted;</target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item4.html</source>
+        <target><![CDATA[A statement that the complaining party has a good faith belief that use of the material
+          in the manner complained of is not authorized by the copyright owner,
+          its agent, or the law (<i>for example</i>, “I am under the good faith
+          belief that the use of the copyrighted content that is identified herein
+          is not authorized by the copyright owner, its agent, or the law.”);
+          and]]></target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item5.html</source>
+        <target><![CDATA[A statement that the information in the notification is accurate, and under penalty
+          of perjury, that the complaining party is authorized to act on behalf
+          of the owner of an exclusive right that is allegedly infringed (<i>for
+            example</i>, “I swear, under penalty of perjury, that the information
+          in this notification is accurate and that I am the copyright owner,
+          or authorized to act on behalf of the copyright owner, of the copyright(s)
+          that is allegedly infringed by the aforementioned content.”).]]></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

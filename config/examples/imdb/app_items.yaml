@@ -1,0 +1,67 @@
+#add/remove item in administration
+#create unique name, set path pattern (id required?), choose template,
+#choose API parameters, set SEO settings
+#use unique name in template
+#bum bum result is this routes.yaml file..
+app_title:
+  path: /tt{id<\d+>}-{slug?}
+  defaults:
+    template: 'title.html.twig'
+    APIParameters:
+      item:
+        entity: 'Title'
+        properties: ['episodeParent', 'description', 'imageSrc', 'season', 'episode', 'duration', 'contentRating', 'metascore',
+                     'locations','keywords', 'awards', 'rating', 'releasedYear', 'category']
+        relations:
+          cast:
+            parameters:
+              limit: 3
+          companies:
+            parameters:
+              limit: 3
+          countries:
+            parameters:
+              limit: 3
+          externalSites:
+            parameters:
+              limit: 3
+          genres:
+            parameters:
+              limit: 3
+          photos:
+            parameters:
+              limit: 3
+          reviews:
+            parameters:
+              limit: 3
+          videos:
+            parameters:
+              limit: 3
+          trailer:
+            parameters:
+              limit: 3
+        methods:
+          - function: 'otherTitles'
+            parameters:
+              limit: 6
+            properties: ['episodeParent', 'imageSrc']
+          - function: 'nextEpisode'
+            properties: ['episodeParent', 'imageSrc', 'season', 'episode']
+          - function: 'previousEpisode'
+            properties: ['episodeParent', 'imageSrc', 'season', 'episode']
+          - function: 'listSeasonsWithEpisodes'
+          - function: 'randomDescription'
+    settings:
+      default_image_file: 'title.png'
+      external_images: true
+      structured_data: 'book'
+      title: 'HD Stream &#127909; {{ #name }} {{ #authors[1].name }} {{ #releasedYear }}'
+      title_options:
+        delimiter: ' - '
+        remove_delimiter_if_last: true
+        #trim_on_word
+        #allowed_html
+        #ellipsis
+      description: '&#128214; Watch/download {{ #name }} {% &#11088;{{ rating.value }}/{{ #rating.scale }} %} {{ #authors[2].name }} {{ #genres[3].name }} {{ description[24] }}'
+      #description_options:
+      #  ellipsis: ' ..'

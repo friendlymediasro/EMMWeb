@@ -1,0 +1,8 @@
+{% extends '@theme/layout.html.twig' %}
+
+{% block title %}{{ 'disclaimer.title'|themeTrans({}, 'disclaimer') }}{% endblock %}
+
+{% block body %}
+    <h2><strong>{{ 'disclaimer.title'|themeTrans({'%app_name%': app_name}, 'disclaimer') }}</strong></h2>
+    {{ 'disclaimer.html'|themeTrans({'%app_website_name%': app_website_name, '%app_website_url%': app_website_url}, 'disclaimer') }}
+{% endblock %}

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace EMMWeb;
 
 use Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache;
 

@@ -1,0 +1,19 @@
+{% extends '@theme/layout.html.twig' %}
+
+{% block title %}{{ 'dmca.title'|themeTrans({}, 'dmca') }}{% endblock %}
+
+{% block body %}
+    <h2><strong>{{ 'dmca.heading'|themeTrans({}, 'dmca') }}</strong></h2>
+    <p>{{ 'dmca.paragraph0.html'|themeTrans({'%email%': displayEmail()}, 'dmca') }}</p>
+    <p>{{ 'dmca.paragraph1.html'|themeTrans({'%app_name%': app_name, '%app_website_name%': app_website_name}, 'dmca') }}</p>
+    <ol style="list-style-type: upper-roman;">
+        <li>{{ 'dmca.list0.item0.html'|themeTrans({}, 'dmca') }}</li>
+        <li>{{ 'dmca.list0.item1.html'|themeTrans({'%app_website_name%': app_website_name}, 'dmca') }}</li>
+        <li>{{ 'dmca.list0.item2.html'|themeTrans({'%app_name%': app_name}, 'dmca') }}</li>
+        <li>{{ 'dmca.list0.item3.html'|themeTrans({'%app_name%': app_name}, 'dmca') }}</li>
+        <li>{{ 'dmca.list0.item4.html'|themeTrans({}, 'dmca') }}</li>
+        <li>{{ 'dmca.list0.item5.html'|themeTrans({}, 'dmca') }}</li>
+    </ol>
+    <p>{{ 'dmca.paragraph2.html'|themeTrans({'%email%': displayEmail(), '%app_name%': app_name}, 'dmca') }}</p>
+    <p><strong>{{ 'dmca.paragraph3.html'|themeTrans({}, 'dmca') }}</strong></p>
+{% endblock %}

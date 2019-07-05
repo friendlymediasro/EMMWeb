@@ -1,0 +1,13 @@
+{% extends '@theme/layout.html.twig' %}
+
+{% block title %}{{ 'contact.title'|themeTrans({}, 'contact') }}{% endblock %}
+
+{% block body %}
+    <h2><strong>{{ 'contact.heading'|themeTrans({}, 'contact') }}</strong></h2>
+    <p>
+        {{ app_name }}<br>
+        {{ app_website_name }}<br>
+        <a href="{{ app_website_url }}">{{ app_website_url }}</a><br>
+        {{ displayEmail() }}
+    </p>
+{% endblock %}

@@ -1,6 +1,6 @@
 <?php
 
-	namespace App\DependencyInjection\Compiler;
+	namespace EMMWeb\DependencyInjection\Compiler;
 
 	use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 	use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -17,14 +17,19 @@
 			$parameterBag = $container->getParameterBag();
 			$theme = $parameterBag->get('app_theme');
 			$parentTheme = $parameterBag->get('app_parent_theme');
-			$dirs = [];
+			//global app translations
+			$dirs[] = $parameterBag->get('kernel.root_dir').'/Resources/translations';
+
+			//parent theme/theme translations
 			if ($theme != $parentTheme) {
-				$translationsDir = sprintf('%s/%s/translations', $parameterBag->get('global_themes_dir'), $parentTheme);
+				$translationsDir = sprintf('%s/%s/Resources/translations', $parameterBag->get('themes_source_dir'), $parentTheme);
 				if (is_dir($translationsDir)) {
 					$dirs[] = $translationsDir;
 				}
 			};
-			$translationsDir = sprintf('%s/%s/translations', $parameterBag->get('global_themes_dir'), $theme);
+
+			//child theme translations
+			$translationsDir = sprintf('%s/%s/Resources/translations', $parameterBag->get('themes_source_dir'), $theme);
 			if (is_dir($translationsDir)) {
 				$dirs[] = $translationsDir;
 			}

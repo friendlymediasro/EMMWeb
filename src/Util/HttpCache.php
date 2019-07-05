@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Util;
+namespace EMMWeb\Util;
 
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;

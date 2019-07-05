@@ -1,9 +1,31 @@
 <?php
 
-namespace App\Util;
+namespace EMMWeb\Util;
 
 class Functions
 {
+
+	public static function getPublicDirectory($projectDir)
+	{
+		$defaultPublicDir = 'public';
+
+		if (null === $projectDir) {
+			return $defaultPublicDir;
+		}
+
+		$composerFilePath = $projectDir.'/composer.json';
+		if (!file_exists($composerFilePath)) {
+			return $defaultPublicDir;
+		}
+
+		$composerConfig = json_decode(file_get_contents($composerFilePath), true);
+
+		if (isset($composerConfig['extra']['public-dir'])) {
+			return $composerConfig['extra']['public-dir'];
+		}
+
+		return $defaultPublicDir;
+	}
 
 	/**
 	 * @param $string

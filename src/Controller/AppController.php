@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace EMMWeb\Controller;
 
+use Hracik\CreateAvatar\CreateAvatar;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,8 +36,6 @@ class AppController extends AppAbstractController
 
 	/** any item of any api source is using this function // can be book, author, movie, episode
 	 * it is required to provide item as array, contains id and slug
-	 * $_route decides what item we are getting from api and what template is going to be used
-	 * $_route can't be changed quickly ONLY because it is used in template {{ path() ]}, {{ url() }} functions
 	 * @param         $id
 	 * @param         $slug
 	 * @param         $template

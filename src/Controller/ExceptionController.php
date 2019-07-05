@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace EMMWeb\Controller;
 
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\Request;

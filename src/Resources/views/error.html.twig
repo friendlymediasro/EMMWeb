@@ -1,0 +1,11 @@
+{% extends '@theme/layout.html.twig' %}
+
+{% block title %}{{ 'error.title'|themeTrans({'%status_text%': status_text}, 'error') }}{% endblock %}
+
+{% block body %}
+    <h2><strong>{{ 'error.heading'|themeTrans({}, 'error') }}</strong></h2>
+    <h3>
+        <strong>{{ 'error.subheading0'|themeTrans({'%status_text%': status_text, '%status_code%': status_code}, 'error') }}</strong>
+    </h3>
+    <p>{{ 'error.paragraph0'|themeTrans({}, 'error') }}</p>
+{% endblock %}
