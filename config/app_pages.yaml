@@ -1,0 +1,3 @@
+#add/remove page in administration
+#create name, set path, choose template, choose API parameters if needed, use name in template
+#result is this routes.yaml file..

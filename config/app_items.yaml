@@ -1,0 +1,5 @@
+#add/remove item in administration
+#create unique name, set path pattern (id required?), choose template,
+#choose API parameters, set SEO settings
+#use unique name in template
+#result is this routes.yaml file..
