@@ -1,6 +1,8 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    RewriteRule install.php install.php [L]
+    
     RewriteRule !.(js|gif|jpg|jpeg|png|css|txt|svg|xml|ico|json|woff|otf|eot|ttf|woff2|pdf|webmanifest)$ public/index.php [L]
     RewriteCond %{REQUEST_URI} !^/public/
     RewriteRule ^(.*)$ public/$1 [L]
