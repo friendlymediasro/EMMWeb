@@ -27,7 +27,7 @@ trait ApiConnect
 			'headers' => ['X-AUTH-API' => $this->getParameter('app_auth_key')],
 		]);
 
-		$response = $httpClient->request('GET', 'https://admin.bunny-holding.com/api', ['query' => $parameters,]);
+		$response = $httpClient->request('GET', 'https://affwebgen.com/api', ['query' => $parameters,]);
 		$decodedResponse = $response->toArray();
 		if (isset($decodedResponse['error'])) {
 			throw new Exception(sprintf('API: returned error - %s', $decodedResponse['error']));
