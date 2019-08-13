@@ -138,11 +138,11 @@ class AppRuntime implements RuntimeExtensionInterface
         if (is_array($links)) {
 		    //array with keys
             if ($key !== false && isset($links[$key])) {
-			    $link = $links[$key];
-		    }
+		        $link = $links[$key];
+	        }
 			else {
 				//key is not found or not specified
-				throw new \Exception(sprintf('Array "app_ads_links" require to use one of keys: %s.', implode(', ', array_keys($links))));
+				throw new \Exception(sprintf('Array "app_ads_links" require to use one of keys: %s. Key "%s" have been called.', implode(', ', array_keys($links)), $key));
 			}
 	    }
         else {
