@@ -10,6 +10,7 @@ use Hracik\CreateAvatarFromText\CreateAvatarFromText;
 use Hracik\CreateImageFromText\CreateImageFromText;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Twig\Extension\RuntimeExtensionInterface;
@@ -23,14 +24,25 @@ class AppRuntime implements RuntimeExtensionInterface
 	protected $translator;
 	protected $schema;
 	protected $seo;
+	protected $router;
 
-	public function __construct(ParameterBagInterface $parameterBag, RequestStack $requestStack, Seo $seo, Schema $schema, TranslatorInterface $translator)
+	public function __construct(ParameterBagInterface $parameterBag, RouterInterface $router, RequestStack $requestStack, Seo $seo, Schema $schema, TranslatorInterface $translator)
 	{
 		$this->translator = $translator;
 		$this->parameterBag = $parameterBag;
 		$this->schema = $schema;
 		$this->seo = $seo;
 		$this->requestStack = $requestStack;
+		$this->router = $router;
+	}
+
+	/**
+	 * @param $route
+	 * @return bool
+	 */
+	public function routeExists($route)
+	{
+		return null !== $this->router->getRouteCollection()->get($route);
 	}
 
 	/**

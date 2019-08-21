@@ -25,6 +25,7 @@ class TwigExtension extends AbstractExtension
 	        new TwigFunction('title', [AppRuntime::class, 'title']),
 	        new TwigFunction('description', [AppRuntime::class, 'description']),
 	        new TwigFunction('hracikAvatar', [AppRuntime::class, 'hracikAvatar']),
+	        new TwigFunction('routeExists', [AppRuntime::class, 'routeExists']),
         );
     }
 
