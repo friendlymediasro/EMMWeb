@@ -4,7 +4,6 @@ namespace EMMWeb\Twig;
 
 use EMMWeb\Util\Functions;
 use EMMWeb\Util\Schema;
-use EMMWeb\Util\Seo;
 use EMMWeb\Util\Theme;
 use Hracik\CreateAvatarFromText\CreateAvatarFromText;
 use Hracik\CreateImageFromText\CreateImageFromText;
@@ -13,27 +12,50 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Extension\RuntimeExtensionInterface;
 use Twig\Markup;
 
 class AppRuntime implements RuntimeExtensionInterface
 {
 
+	const DELIMITER_PLACEHOLDER = '|DELIMITER|';
+	const ELLIPSIS_PLACEHOLDER = '|ELLIPSIS|';
+
+	protected $environment;
 	protected $parameterBag;
 	protected $requestStack;
 	protected $translator;
 	protected $schema;
-	protected $seo;
 	protected $router;
 
-	public function __construct(ParameterBagInterface $parameterBag, RouterInterface $router, RequestStack $requestStack, Seo $seo, Schema $schema, TranslatorInterface $translator)
+	public function __construct(Environment $environment, ParameterBagInterface $parameterBag, RouterInterface $router, RequestStack $requestStack, Schema $schema, TranslatorInterface $translator)
 	{
+		$this->environment = $environment;
 		$this->translator = $translator;
 		$this->parameterBag = $parameterBag;
 		$this->schema = $schema;
-		$this->seo = $seo;
 		$this->requestStack = $requestStack;
 		$this->router = $router;
+	}
+
+	/**
+	 * @param             $template
+	 * @param array       $context
+	 * @return string
+	 * @throws LoaderError
+	 * @throws RuntimeError
+	 * @throws SyntaxError
+	 */
+	public function renderFromString($template, array $context = [])
+	{
+		$template =	$this->environment->createTemplate((string) $template);
+		$content = $this->environment->render($template, $context);
+
+		return $content;
 	}
 
 	/**
@@ -82,13 +104,12 @@ class AppRuntime implements RuntimeExtensionInterface
 
 	/**
 	 * @param $sources
-	 * @param $itemSettingName
+	 * @param $itemSettings
 	 * @return mixed
 	 */
-	public function displayImage($sources, $itemSettingName)
+	public function displayImage($sources, $itemSettings)
 	{
-		$settings = $this->getItemSettings($itemSettingName);
-		if (isset($settings['external_images']) && $settings['external_images'] === true) {
+		if (isset($itemSettings['external_images']) && $itemSettings['external_images'] === true) {
 			if (is_array($sources)) {
 				foreach ($sources as $source) {
 					if (is_string($source)) {
@@ -102,8 +123,8 @@ class AppRuntime implements RuntimeExtensionInterface
 			}
 		}
 
-		if (isset($settings['default_image_file'])) {
-			return $this->themeAsset('images/'.  $settings['default_image_file']);
+		if (isset($itemSettings['default_image_file'])) {
+			return $this->themeAsset('images/'.  $itemSettings['default_image_file']);
 		}
 
 		return '';
@@ -111,15 +132,15 @@ class AppRuntime implements RuntimeExtensionInterface
 
 	/**
 	 * @param $item
-	 * @param $itemSettingName
+	 * @param $itemSettings
+	 * @param $routeName
 	 * @return mixed
 	 * @throws \Exception
 	 */
-	public function displaySchemaOrgStructuredData($item, $itemSettingName)
+	public function displaySchemaOrgStructuredData($item, $itemSettings, $routeName)
 	{
-		$settings = $this->getItemSettings($itemSettingName);
-		if (isset($settings['structured_data'])) {
-			$structuredData = $this->schema->getStructuredData($item, $settings['structured_data'], $itemSettingName);
+		if (isset($itemSettings['structured_data'])) {
+			$structuredData = $this->schema->getStructuredData($item, $itemSettings['structured_data'], $routeName);
 			if (false !== $structuredData) {
 				$html = sprintf('<script type="application/ld+json">%s</script>', $structuredData);
                 return new Markup($html, 'UTF-8');
@@ -140,11 +161,11 @@ class AppRuntime implements RuntimeExtensionInterface
 	}
 	/**
 	 * @param $key
-	 * @param $name
+	 * @param $item
 	 * @return mixed
 	 * @throws \Exception
 	 */
-	public function ads($key = false, $name = false)
+	public function ads(array $item, $key = false)
     {
 	    $links = $this->parameterBag->get('app_ads_links');
         if (is_array($links)) {
@@ -162,7 +183,7 @@ class AppRuntime implements RuntimeExtensionInterface
 		    $link = $links;
 	    }
 
-    	return str_replace('$name',  $name !== false ? urlencode($name) : '', $link);
+	    return $this->renderFromString($link, ['item' => $item]);
     }
 
 
@@ -170,6 +191,7 @@ class AppRuntime implements RuntimeExtensionInterface
 	 * @param string $text
 	 * @param array  $options
 	 * @return string
+	 * @throws \Exception
 	 */
 	public function excerpt(string $text, array $options = []): string
 	{
@@ -177,7 +199,7 @@ class AppRuntime implements RuntimeExtensionInterface
 		$resolver->setDefaults([
 			'trim_on_word' => true,
 			'limit' => 24,
-			'ellipses' => ' ..',
+			'ellipsis' => ' ..',
 		]);
 		$defaults = $resolver->resolve($this->parameterBag->get('app_excerpt'));
 		$resolver->clear();
@@ -185,10 +207,10 @@ class AppRuntime implements RuntimeExtensionInterface
 		$options = $resolver->resolve($options);
 
 		if ($options['trim_on_word'] === true) {
-			return Functions::trimOnWord($text, $options['limit'], $options['ellipses']);
+			return $this->trimOnWord($text, $options['limit'], $options['ellipsis']);
 		}
 		else {
-			return Functions::trimOnChar($text, $options['limit'], $options['ellipses']);
+			return $this->trimOnChar($text, $options['limit'], $options['ellipsis']);
 		}
 	}
 
@@ -209,32 +231,144 @@ class AppRuntime implements RuntimeExtensionInterface
 		return '';
 	}
 
-	public function title($item, $itemSettingName)
+	/**
+	 * @param int   $limit
+	 * @param array $array
+	 * @param null  $key
+	 * @return string
+	 * @throws \Exception
+	 */
+	public function arraySlice(int $limit, array $array, $key = null)
 	{
-		$settings = $this->getItemSettings($itemSettingName);
-		$options = $this->seo->resolveOptions($settings['title_options']);
-		$title = $this->seo->makeMagic($item, $settings['title'], $options);
-		if (true === $options['allowed_html']) {
-			//unicode support
-			return new Markup($title, 'UTF-8');
+		if ((count($array) !== count($array, COUNT_RECURSIVE)) && $key === null) {
+			throw new \Exception('Key must be specified for multidimensional arrays.');
 		}
-		else {
-			return $title;
+
+		$limitedArray = array_slice($array, 0, $limit);
+		if (null !== $key) {
+			$limitedArray = array_column($limitedArray, $key);
+			if ((count($limitedArray) !== count($limitedArray, COUNT_RECURSIVE)) && $key === null) {
+				throw new \Exception('Array can not be multidimensional');
+			}
 		}
+
+		return implode(', ', $limitedArray);
 	}
 
-	public function description($item, $itemSettingName)
+	/**
+	 * @param      $value
+	 * @param bool $delimiter
+	 * @return string
+	 */
+	public function delimiter($value, $delimiter = false)
 	{
-		$settings = $this->getItemSettings($itemSettingName);
-		$options = $this->seo->resolveOptions($settings['description_options']);
-		$description = $this->seo->makeMagic($item, $settings['description'], $options);
-		if (true === $options['allowed_html']) {
-			//unicode support
-			return new Markup($description, 'UTF-8');
+		if (false === $delimiter) {
+			$delimiter = AppRuntime::DELIMITER_PLACEHOLDER;
 		}
-		else {
-			return $description;
+
+		return sprintf('%s%s', $value, $delimiter);
+	}
+
+
+	/**
+	 * @param        $wordsLimit
+	 * @param string $string
+	 * @param bool   $ellipsis
+	 * @return string
+	 * @throws \Exception
+	 */
+	public function trimOnWord($wordsLimit, string $string, $ellipsis = false)
+	{
+		$string = Functions::cleanupStringFromHtml($string);
+		$words = explode(' ', $string);
+		if (count($words) <= $wordsLimit) {
+			return $string;
 		}
+
+		$trimmedString = implode(' ', array_slice($words, 0, $wordsLimit));
+		//add ellipsis (...)
+		if (false === $ellipsis) {
+			$ellipsis = AppRuntime::ELLIPSIS_PLACEHOLDER;
+		}
+
+		return $trimmedString . $ellipsis;
+	}
+
+	/**
+	 * @param        $charsLimit
+	 * @param string $string
+	 * @param bool   $ellipsis
+	 * @return string
+	 * @throws \Exception
+	 */
+	public function trimOnChar($charsLimit, string $string, $ellipsis = false)
+	{
+		$string = Functions::cleanupStringFromHtml($string);
+		if (strlen($string) <= $charsLimit) {
+			return $string;
+		}
+
+		//find last space within length
+		$lastSpace = strrpos(substr($string, 0, $charsLimit), ' ');
+		$trimmedString = substr($string, 0, $lastSpace);
+		//add ellipsis (...)
+		if (false === $ellipsis) {
+			$ellipsis = AppRuntime::ELLIPSIS_PLACEHOLDER;
+		}
+
+		return $trimmedString . $ellipsis;
+	}
+
+	public function renderIfEverythingSet($item, $stringTemplate, $variables)
+	{
+		//todo not usable
+		/*foreach ($variables as $variable) {
+			if (empty($variable)) {
+				//i.e. false, '', 0, [], null
+				//strict is true in case of block, block is empty if any variable replace in it is empty
+				return '';
+			}
+		}
+
+		return $this->renderFromString($stringTemplate, ['item' => $item]);
+		*/
+	}
+
+	/**
+	 * @param $item
+	 * @param $stringTemplate
+	 * @param $options
+	 * @return Markup
+	 * @throws \Throwable
+	 */
+	public function renderSeo($item, $stringTemplate, $options)
+	{
+		$content = $this->renderFromString($stringTemplate, ['item' => $item]);
+
+		//replace delimiters, remove whitespace
+		$resolver = new OptionsResolver();
+		$resolver->setDefaults([
+			'delimiter' => '.',
+			'ellipsis' => ' ..',
+			'remove_delimiter_if_last' => false,
+		]);
+		$resolver->setAllowedTypes('delimiter', 'string');
+		$resolver->setAllowedTypes('ellipsis', 'string');
+		$resolver->setAllowedTypes('remove_delimiter_if_last', 'boolean');
+		$options = $resolver->resolve($options);
+
+		$content = trim($content);
+		if (true === $options['remove_delimiter_if_last'] && substr($content, -strlen(AppRuntime::DELIMITER_PLACEHOLDER)) === AppRuntime::DELIMITER_PLACEHOLDER) {
+			//remove delimiter if it is last group of characters
+			$content = substr($content, 0, strrpos($content,AppRuntime::DELIMITER_PLACEHOLDER));
+		}
+
+		//todo possible RTL bug, book 10,000 as example, russian chars are good, 10021 armenian lang is ok ..
+		$content = str_replace([AppRuntime::DELIMITER_PLACEHOLDER, AppRuntime::ELLIPSIS_PLACEHOLDER], [$options['delimiter'], $options['ellipsis']], $content);
+		//cleanup from unused/empty variables and spaces they could add
+		$content = trim(preg_replace('/\s+/', ' ', $content));
+
+		return new Markup($content, 'UTF-8'); //unicode support
 	}
 
 	/**
@@ -290,14 +424,5 @@ class AppRuntime implements RuntimeExtensionInterface
 		};
 
 		return sprintf('%s/%s/%s/%s', Theme::THEMES_PUBLIC_DIR, $parentTheme, $this->parameterBag->get('app_asset_version'), $path);
-	}
-
-	/**
-	 * @param $itemSettingName
-	 * @return mixed
-	 */
-	private function getItemSettings($itemSettingName)
-	{
-		return $this->parameterBag->get('app_item_settings')[$itemSettingName];
 	}
 }

@@ -55,13 +55,12 @@ app_title:
       default_image_file: 'title.png'
       external_images: true
       structured_data: 'book'
-      title: 'HD Stream &#127909; {{ #name }} {{ #authors[1].name }} {{ #releasedYear }}'
+      title: "HD Stream &#127909; {{ extendedTitleName(item)|delimiter }} {{ item.releasedYear }}"
       title_options:
         delimiter: ' - '
         remove_delimiter_if_last: true
         #trim_on_word
-        #allowed_html
-        #ellipsis
-      description: '&#128214; Watch/download {{ #name }} {% &#11088;{{ rating.value }}/{{ #rating.scale }} %} {{ #authors[2].name }} {{ #genres[3].name }} {{ description[24] }}'
+      description: "&#127902; Watch/download {{ extendedTitleName(item)|delimiter }}  {{ arraySlice('3', item.genres, 'name')|delimiter }} {{ trimOnWord('24', item.description)|delimiter }}"
+      #{% &#11088;{{ item.rating.value }}/{{ item.rating.scale|delimiter }} %}
       #description_options:
       #  ellipsis: ' ..'

@@ -8,12 +8,12 @@ parameters:
     app_email: humby@bumby.com
     app_website_name: 'Humby'
     app_website_url: 'https://localhost.host'
-    app_auth_key: abcd
-    app_theme: hoo.child
+    app_auth_key: 7c58eb06f263a040d140992a160548
+    app_theme: Hoo.child
     app_ads_links:
         #use any key you want and specify it in template
-        read: 'https://getbootstrap.com'
-        download: 'https://getbootstrap.com/555?nm=$name'
+        read: "https://google.com?q={{ ('Read ' ~ item.name)|url_encode }}"
+        download: "https://google.com?q={{ ('Download ' ~ item.name)|url_encode }}"
     ###########################
     # can be provided by USER #
     # not required, defaults  #
@@ -22,7 +22,7 @@ parameters:
     #custom theme compiler can add feature in theme just based on setting ?
     #if it is used in theme and turned off in setting it will be ignored ..
     app_locale: en #en
-    app_http_cache: true #true
+    app_http_cache: false #true
     app_asset_version: v2 #null
     app_asset_base_url: ~ #null
     app_email_obfuscate: true #true
@@ -32,5 +32,5 @@ parameters:
     app_cookie_consent: true #false
     app_excerpt:
         trim_on_word: true
-        ellipses: ' ..'
+        ellipsis: ' ..'
         limit: 24

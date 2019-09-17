@@ -2,4 +2,65 @@
 #create unique name, set path pattern (id required?), choose template,
 #choose API parameters, set SEO settings
 #use unique name in template
-#result is this routes.yaml file..
+#bum bum result is this routes.yaml file..
+app_title:
+  path: /tt{id<\d+>}-{slug?}
+  defaults:
+    template: 'title.html.twig'
+    APIParameters:
+      item:
+        entity: 'Title'
+        properties: ['episodeParent', 'description', 'imageSrc', 'season', 'episode', 'duration', 'contentRating', 'metascore',
+                     'locations','keywords', 'awards', 'rating', 'releasedYear', 'category']
+        relations:
+          cast:
+            parameters:
+              limit: 3
+          companies:
+            parameters:
+              limit: 3
+          countries:
+            parameters:
+              limit: 3
+          externalSites:
+            parameters:
+              limit: 3
+          genres:
+            parameters:
+              limit: 3
+          photos:
+            parameters:
+              limit: 3
+          reviews:
+            parameters:
+              limit: 3
+          videos:
+            parameters:
+              limit: 3
+          trailer:
+            parameters:
+              limit: 3
+        methods:
+          - function: 'otherTitles'
+            parameters:
+              limit: 6
+            properties: ['episodeParent', 'imageSrc']
+          - function: 'nextEpisode'
+            properties: ['episodeParent', 'imageSrc', 'season', 'episode']
+          - function: 'previousEpisode'
+            properties: ['episodeParent', 'imageSrc', 'season', 'episode']
+          - function: 'listSeasonsWithEpisodes'
+          - function: 'randomDescription'
+    settings:
+      default_image_file: 'title.png'
+      external_images: true
+      structured_data: 'book'
+      title: "HD Stream &#128250; {{ extendedTitleName(item)|delimiter }} {{ item.releasedYear }}"
+      title_options:
+        delimiter: ' - '
+        remove_delimiter_if_last: true
+        #trim_on_word
+      description: "&#127902; Watch/download {{ extendedTitleName(item)|delimiter }}  {{ arraySlice('3', item.genres, 'name')|delimiter }} {{ trimOnWord('24', item.description)|delimiter }}"
+      #{% &#11088;{{ item.rating.value }}/{{ item.rating.scale|delimiter }} %}
+      #description_options:
+      #  ellipsis: ' ..'

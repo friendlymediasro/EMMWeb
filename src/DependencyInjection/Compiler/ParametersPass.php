@@ -60,6 +60,7 @@
 			'app_google_analytics',
 			'app_histats',
 			'app_cookie_consent',
+			'app_item_settings',
 		];
 
 		/**

@@ -7,14 +7,14 @@ app_index:
         template: 'index.html.twig'
         APIParameters:
             extra:
-                popularBooks:
-                    parameters:
-                        limit: 7
-                    properties: ['imageSrc']
-                latestBooks:
-                    parameters:
-                        limit: 10
-                    properties: ['imageSrc']
+                - function: 'popularBooks'
+                  parameters:
+                    limit: 7
+                  properties: ['imageSrc']
+                - function: 'latestBooks'
+                  parameters:
+                    limit: 10
+                  properties: ['imageSrc']
 app_contact:
     path: /contact
     defaults:

@@ -31,7 +31,7 @@ app_book:
             parameters:
               limit: 3
         methods:
-          otherBooks:
+          - function: 'otherBooks'
             parameters:
               limit: 10
             properties: ['imageSrc']
@@ -39,13 +39,15 @@ app_book:
       default_image_file: 'book.png'
       external_images: true
       structured_data: 'book'
-      title: 'Download &#128213; {{ #name }} {{ #authors[1].name }} {{ #releasedYear }}'
+      title: "Download &#128213; {{ item.name|delimiter }} {{ arraySlice('1', item.persons, 'name')|delimiter }} {{ item.releasedYear }}"
       title_options:
         delimiter: ' - '
         remove_delimiter_if_last: true
-        #trim_on_word
-        #allowed_html
-        #ellipsis
-      description: '&#128214; Read/download {{ #name }} {% &#11088;{{ rating.value }}/{{ #rating.scale }} %} {{ #authors[2].name }} {{ #genres[3].name }} {{ description[24] }}'
-      #description_options:
-      #  ellipsis: ' ..'
+        #renderIfEverythingSet('&#11088;%s/%s', {rating.value, rating.scale})|delimiter
+        #{% &#11088;{{ rating.value }}/{{ #rating.scale }} %}
+      description: "&#128214; Read/download {{ item.name|delimiter }} {{ arraySlice('2', item.persons, 'name')|delimiter }} {{ arraySlice('3', item.genres, 'name')|delimiter }} {{ trimOnWord('24', item.description)|delimiter }}"
+      description_options:
+        delimiter: '. '
+        remove_delimiter_if_last: false
+        ellipsis: ' ..'
+

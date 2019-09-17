@@ -15,7 +15,13 @@ class TwigExtension extends AbstractExtension
     public function getFunctions()
     {
         return array(
-        	new TwigFunction('ads', [AppRuntime::class, 'ads']),
+	        new TwigFunction('renderSeo', [AppRuntime::class, 'renderSeo']),
+	        //new TwigFunction('renderIfEverythingSet', [AppRuntime::class, 'renderIfEverythingSet']),
+	        new TwigFunction('arraySlice', [AppRuntime::class, 'arraySlice']),
+	        new TwigFunction('trimOnWord', [AppRuntime::class, 'trimOnWord']),
+	        new TwigFunction('trimOnChar', [AppRuntime::class, 'trimOnChar']),
+
+	        new TwigFunction('ads', [AppRuntime::class, 'ads']),
 	        new TwigFunction('displayUrl', [AppRuntime::class, 'displayUrl']),
 	        new TwigFunction('displayEmail', [AppRuntime::class, 'displayEmail']),
 	        new TwigFunction('displayImage', [AppRuntime::class, 'displayImage']),
@@ -37,6 +43,7 @@ class TwigExtension extends AbstractExtension
 		return [
 			new TwigFilter('excerpt', [AppRuntime::class, 'excerpt']),
 			new TwigFilter('themeTrans', [AppRuntime::class, 'themeTrans']),
+			new TwigFilter('delimiter', [AppRuntime::class, 'delimiter']),
 		];
 	}
 

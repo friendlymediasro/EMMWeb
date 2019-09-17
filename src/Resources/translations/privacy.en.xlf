@@ -12,7 +12,7 @@
       </segment>
       <segment>
         <source>privacy.html</source>
-        <target><![CDATA[<p>%app_name% operates the %app_website_url% website, which provides the SERVICE.</p>
+        <target><![CDATA[<p>%app_name% operates the %app_website_url% website, which provides the Service.</p>
 
     <p>This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service, the %app_website_name% website.</p>
 

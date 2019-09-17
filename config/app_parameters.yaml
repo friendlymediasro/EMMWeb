@@ -1,1 +1,36 @@
 parameters:
+    ##############################
+    # has to be provided by USER #
+    # required, no defaults      #
+    ##############################
+    app_name: 'Humby Bumby Ltd.'
+    app_slogan: 'Never better!'
+    app_email: humby@bumby.com
+    app_website_name: 'Humby'
+    app_website_url: 'https://bumby.com'
+    app_auth_key: b9b6030325b47ca99490001eaa5f53
+    app_theme: Ogi.child
+    app_ads_links:
+        #use any key you want and specify it in template
+        stream: "https://google.com?q={{ ('Stream ' ~ extendedTitleName(item))|url_encode }}"
+        download: "https://google.com?q={{ ('Download ' ~ extendedTitleName(item))|url_encode }}"
+    ###########################
+    # can be provided by USER #
+    # not required, defaults  #
+    ###########################
+    #something is coded global, but still has to be called in particular theme
+    #custom theme compiler can add feature in theme just based on setting ?
+    #if it is used in theme and turned off in setting it will be ignored ..
+    app_locale: en #en
+    app_http_cache: false #true
+    app_asset_version: v9 #null
+    app_asset_base_url: ~ #null
+    app_email_obfuscate: true #true
+    app_dereferer: true #true
+    app_google_analytics: 'UA-XXXXXXXX-X' #null
+    app_histats: null #null
+    app_cookie_consent: true #false
+    app_excerpt:
+        trim_on_word: true
+        ellipsis: ' ..'
+        limit: 24
