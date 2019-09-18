@@ -208,10 +208,10 @@ class AppRuntime implements RuntimeExtensionInterface
 		$options = $resolver->resolve($options);
 
 		if ($options['trim_on_word'] === true) {
-			return $this->trimOnWord($text, $options['limit'], $options['ellipsis']);
+			return $this->trimOnWord($options['limit'], $text, $options['ellipsis']);
 		}
 		else {
-			return $this->trimOnChar($text, $options['limit'], $options['ellipsis']);
+			return $this->trimOnChar($options['limit'], $text, $options['ellipsis']);
 		}
 	}
 
@@ -270,16 +270,19 @@ class AppRuntime implements RuntimeExtensionInterface
 		return sprintf('%s%s', $value, $delimiter);
 	}
 
-
 	/**
-	 * @param        $wordsLimit
-	 * @param string $string
-	 * @param bool   $ellipsis
+	 * @param             $wordsLimit
+	 * @param string|null $string
+	 * @param bool        $ellipsis
 	 * @return string
 	 * @throws \Exception
 	 */
-	public function trimOnWord($wordsLimit, string $string, $ellipsis = false)
+	public function trimOnWord($wordsLimit, ?string $string, $ellipsis = false)
 	{
+		if (null === $string) {
+			return '';
+		}
+
 		$string = Functions::cleanupStringFromHtml($string);
 		$words = explode(' ', $string);
 		if (count($words) <= $wordsLimit) {
@@ -296,14 +299,18 @@ class AppRuntime implements RuntimeExtensionInterface
 	}
 
 	/**
-	 * @param        $charsLimit
-	 * @param string $string
-	 * @param bool   $ellipsis
+	 * @param             $charsLimit
+	 * @param string|null $string
+	 * @param bool        $ellipsis
 	 * @return string
 	 * @throws \Exception
 	 */
-	public function trimOnChar($charsLimit, string $string, $ellipsis = false)
+	public function trimOnChar($charsLimit, ?string $string, $ellipsis = false)
 	{
+		if (null === $string) {
+			return '';
+		}
+
 		$string = Functions::cleanupStringFromHtml($string);
 		if (strlen($string) <= $charsLimit) {
 			return $string;
