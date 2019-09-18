@@ -38,7 +38,7 @@ app_book:
     settings:
       default_image_file: 'book.png'
       external_images: true
-      structured_data: 'book'
+      structured_data: true
       title: "Download &#128213; {{ item.name|delimiter }} {{ arraySlice('1', item.persons, 'name')|delimiter }} {{ item.releasedYear }}"
       title_options:
         delimiter: ' - '

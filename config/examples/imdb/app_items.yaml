@@ -54,7 +54,7 @@ app_title:
     settings:
       default_image_file: 'title.png'
       external_images: true
-      structured_data: 'book'
+      structured_data: true
       title: "HD Stream &#127909; {{ extendedTitleName(item)|delimiter }} {{ item.releasedYear }}"
       title_options:
         delimiter: ' - '
