@@ -160,6 +160,7 @@ class AppRuntime implements RuntimeExtensionInterface
 		$svg = CreateAvatarFromText::getAvatar($string, ['size' => 64, 'text-case' => 'upper', 'text-modification' => 'pseudo', 'font-weight' => 'normal', 'color-scheme' => 'light']);
 		return new Markup($svg, 'UTF-8');
 	}
+
 	/**
 	 * @param $key
 	 * @param $item
@@ -253,7 +254,21 @@ class AppRuntime implements RuntimeExtensionInterface
 			}
 		}
 
-		return implode(', ', $limitedArray);
+		return $limitedArray;
+	}
+
+	/**
+	 * @param array $array
+	 * @return string
+	 * @throws \Exception
+	 */
+	public function comma(array $array)
+	{
+		if (count($array) == count($array, COUNT_RECURSIVE)) {
+			return implode(', ', $array);
+		}
+
+		throw new \Exception('Array has to be one-dimensional to join values with comma.');
 	}
 
 	/**
@@ -263,6 +278,10 @@ class AppRuntime implements RuntimeExtensionInterface
 	 */
 	public function delimiter($value, $delimiter = false)
 	{
+		if (empty($value)) {
+			return '';
+		}
+
 		if (false === $delimiter) {
 			$delimiter = AppRuntime::DELIMITER_PLACEHOLDER;
 		}
@@ -327,10 +346,9 @@ class AppRuntime implements RuntimeExtensionInterface
 		return $trimmedString . $ellipsis;
 	}
 
-	public function renderIfEverythingSet($item, $stringTemplate, $variables)
+	public function renderIfEverythingSet($stringTemplate, $variables)
 	{
-		//todo not usable
-		/*foreach ($variables as $variable) {
+		foreach ($variables as $variable) {
 			if (empty($variable)) {
 				//i.e. false, '', 0, [], null
 				//strict is true in case of block, block is empty if any variable replace in it is empty
@@ -338,8 +356,9 @@ class AppRuntime implements RuntimeExtensionInterface
 			}
 		}
 
-		return $this->renderFromString($stringTemplate, ['item' => $item]);
-		*/
+		$content = vsprintf($stringTemplate, $variables);
+
+		return $content;
 	}
 
 	/**
@@ -376,7 +395,7 @@ class AppRuntime implements RuntimeExtensionInterface
 		//cleanup from unused/empty variables and spaces they could add
 		$content = trim(preg_replace('/\s+/', ' ', $content));
 
-		return new Markup($content, 'UTF-8'); //unicode support
+		return new Markup(html_entity_decode($content), 'UTF-8'); //unicode/html support
 	}
 
 	/**

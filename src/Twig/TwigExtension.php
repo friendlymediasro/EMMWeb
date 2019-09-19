@@ -16,7 +16,7 @@ class TwigExtension extends AbstractExtension
     {
         return array(
 	        new TwigFunction('renderSeo', [AppRuntime::class, 'renderSeo']),
-	        //new TwigFunction('renderIfEverythingSet', [AppRuntime::class, 'renderIfEverythingSet']),
+	        new TwigFunction('renderIfEverythingSet', [AppRuntime::class, 'renderIfEverythingSet']),
 	        new TwigFunction('arraySlice', [AppRuntime::class, 'arraySlice']),
 	        new TwigFunction('trimOnWord', [AppRuntime::class, 'trimOnWord']),
 	        new TwigFunction('trimOnChar', [AppRuntime::class, 'trimOnChar']),
@@ -44,6 +44,7 @@ class TwigExtension extends AbstractExtension
 			new TwigFilter('excerpt', [AppRuntime::class, 'excerpt']),
 			new TwigFilter('themeTrans', [AppRuntime::class, 'themeTrans']),
 			new TwigFilter('delimiter', [AppRuntime::class, 'delimiter']),
+			new TwigFilter('comma', [AppRuntime::class, 'comma']),
 		];
 	}
 

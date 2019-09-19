@@ -43,8 +43,6 @@ app_book:
       title_options:
         delimiter: ' - '
         remove_delimiter_if_last: true
-        #renderIfEverythingSet('&#11088;%s/%s', {rating.value, rating.scale})|delimiter
-        #{% &#11088;{{ rating.value }}/{{ #rating.scale }} %}
       description: "&#128214; Read/download {{ item.name|delimiter }} {{ arraySlice('2', item.persons, 'name')|delimiter }} {{ arraySlice('3', item.genres, 'name')|delimiter }} {{ trimOnWord('24', item.description)|delimiter }}"
       description_options:
         delimiter: '. '
