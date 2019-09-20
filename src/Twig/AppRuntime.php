@@ -140,7 +140,6 @@ class AppRuntime implements RuntimeExtensionInterface
 	 */
 	public function displaySchemaOrgStructuredData($item, $niche, $itemSettings, $routeName)
 	{
-		dump($item);
 		if (isset($itemSettings['structured_data']) && true === $itemSettings['structured_data']) {
 			$structuredData = $this->schema->getStructuredData($item, $niche, $routeName);
 			if (false !== $structuredData) {
