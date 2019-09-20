@@ -92,7 +92,7 @@ class AppRuntime implements RuntimeExtensionInterface
 	 * @param $url
 	 * @return string
 	 */
-	public function displayUrl($url)
+	public function derefererUrl($url)
 	{
 		if ($this->parameterBag->get('app_dereferer') !== false) {
 			return "https://dereferer.me/?".urlencode($url);
@@ -140,6 +140,7 @@ class AppRuntime implements RuntimeExtensionInterface
 	 */
 	public function displaySchemaOrgStructuredData($item, $niche, $itemSettings, $routeName)
 	{
+		dump($item);
 		if (isset($itemSettings['structured_data']) && true === $itemSettings['structured_data']) {
 			$structuredData = $this->schema->getStructuredData($item, $niche, $routeName);
 			if (false !== $structuredData) {
@@ -351,7 +352,7 @@ class AppRuntime implements RuntimeExtensionInterface
 		return $trimmedString . $ellipsis;
 	}
 
-	public function renderIfEverythingSet($stringTemplate, $variables)
+	public function renderIfEverythingIsNotEmpty($stringTemplate, $variables)
 	{
 		foreach ($variables as $variable) {
 			if (empty($variable)) {

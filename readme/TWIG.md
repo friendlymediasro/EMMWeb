@@ -9,12 +9,12 @@ Your template can also contains Twig functions and filters which can be also use
 
 ### Functions
 
-#### displayUrl(url)
+#### derefererUrl(url)
 
 Masks referer from url address where user is going to be redirected.
 Returns string.
 ```
-{{ displayUrl('https://www.google.com/') }}
+{{ derefererUrl('https://www.google.com/') }}
 //https://dereferer.me/?https%3A%2F%2Fwww.google.com%2F
 ```
 
@@ -46,23 +46,23 @@ Returns simple array.
 {{ arraySlice('2', [["id" => 1, "name" => "Action"], ["id" => 2, "name" => "Drama"], ["id" => 8, "name" => "Adventure"]], 'name') }}
 //["Action", "Drama"]
 ```
-#### renderIfEverythingSet(template, variables)
+#### renderIfEverythingIsNotEmpty(template, variables)
 
 Renders template but only if every variable in template exists and is not empty.
 Similar to PHP [vsprintf](https://www.php.net/manual/en/function.vsprintf.php). Returns string.
 ```
-{{ renderIfEverythingSet('Rated %%s/%%s', [8.2, 10]) }}
+{{ renderIfEverythingIsNotEmpty('Rated %%s/%%s', [8.2, 10]) }}
 //Rated 8.2/10
 
 //Examples where empty string will be returned
-{{ renderIfEverythingSet('Rated %%s/%%s', [0, 10]) }}
-{{ renderIfEverythingSet('Rated %%s/%%s', ['', 10]) }}
+{{ renderIfEverythingIsNotEmpty('Rated %%s/%%s', [0, 10]) }}
+{{ renderIfEverythingIsNotEmpty('Rated %%s/%%s', ['', 10]) }}
 ```
 
 ### Filters
 #### delimiter
 
-Appends delimiter after variable/block if is it not empty. Returns string.
+Appends delimiter after variable/block if it is not empty. Returns string.
 ```
 {{ 'Gladiator'|delimiter }}
 //Gladiator.
@@ -78,7 +78,7 @@ Join array elements with a comma and space. Works same as Twig [join](https://tw
 ## Examples
 See examples how it could look like when you use functions and filters in Twig template together with variables.
 ```
-&#127902; Watch/download {{ item.name }} {{ renderIfEverythingSet('&#11088;%%s/%%s', [item.rating.value, item.rating.scale])|delimiter }} {{ arraySlice('3', item.genres, 'name')|comma|delimiter }} {{ trimOnWord('24', item.description) }}
+&#127902; Watch/download {{ item.name }} {{ renderIfEverythingIsNotEmpty('&#11088;%%s/%%s', [item.rating.value, item.rating.scale])|delimiter }} {{ arraySlice('3', item.genres, 'name')|comma|delimiter }} {{ trimOnWord('24', item.description) }}
 &#128214; Read/download {{ item.name|delimiter }} {{ arraySlice('2', item.persons, 'name')|comma|delimiter }} {{ trimOnChar('66', item.description)|delimiter }}
 HD Stream &#128250; {{ item.name|delimiter }} {{ item.releasedYear }}
 Download {{ item.name|delimiter }} {{ arraySlice('1', item.persons, 'name')|comma|delimiter }} {{ item.releasedYear }}

@@ -16,13 +16,13 @@ class TwigExtension extends AbstractExtension
     {
         return array(
 	        new TwigFunction('renderSeo', [AppRuntime::class, 'renderSeo']),
-	        new TwigFunction('renderIfEverythingSet', [AppRuntime::class, 'renderIfEverythingSet']),
+	        new TwigFunction('renderIfEverythingIsNotEmpty', [AppRuntime::class, 'renderIfEverythingIsNotEmpty']),
 	        new TwigFunction('arraySlice', [AppRuntime::class, 'arraySlice']),
 	        new TwigFunction('trimOnWord', [AppRuntime::class, 'trimOnWord']),
 	        new TwigFunction('trimOnChar', [AppRuntime::class, 'trimOnChar']),
 
 	        new TwigFunction('ads', [AppRuntime::class, 'ads']),
-	        new TwigFunction('displayUrl', [AppRuntime::class, 'displayUrl']),
+	        new TwigFunction('derefererUrl', [AppRuntime::class, 'derefererUrl']),
 	        new TwigFunction('displayEmail', [AppRuntime::class, 'displayEmail']),
 	        new TwigFunction('displayImage', [AppRuntime::class, 'displayImage']),
 	        new TwigFunction('displaySchemaOrgStructuredData', [AppRuntime::class, 'displaySchemaOrgStructuredData']),
