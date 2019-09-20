@@ -77,10 +77,22 @@ Join array elements with a comma and space. Works same as Twig [join](https://tw
 
 ## Examples
 See examples how it could look like when you use functions and filters in Twig template together with variables.
+
+To evaluate final render results, let's say variable _item_ contains these values: 
+```json
+{"name":"X-Men","rating":{"value":"7.4","weight":537121,"scale":10},"releasedYear":2000,"countries":[{"id":1,"name":"USA","code":"US"}],"genres":[{"id":1,"name":"Action"},{"id":2,"name":"Adventure"},{"id":10,"name":"Sci-Fi"}],"description":"In a world where mutants (evolved super-powered humans) exist and are discriminated against, two groups form for an inevitable clash: the supremacist Brotherhood, and the pacifist X-Men."}
 ```
-&#127902; Watch/download {{ item.name }} {{ renderIfEverythingIsNotEmpty('&#11088;%%s/%%s', [item.rating.value, item.rating.scale])|delimiter }} {{ arraySlice('3', item.genres, 'name')|comma|delimiter }} {{ trimOnWord('24', item.description) }}
-&#128214; Read/download {{ item.name|delimiter }} {{ arraySlice('2', item.persons, 'name')|comma|delimiter }} {{ trimOnChar('66', item.description)|delimiter }}
+Then rendering the following templates will return these:
+```
+&#127902; Watch/download {{ item.name }} {{ renderIfEverythingIsNotEmpty('&#11088;%%s/%%s', [item.rating.value, item.rating.scale])|delimiter }} {{ arraySlice('3', item.genres, 'name')|comma|delimiter }} {{ trimOnWord('20', item.description) }}
+//🎞 Watch/download X-Men ⭐7.4/10. Action, Adventure, Sci-Fi. In a world where mutants (evolved super-powered humans) exist and are discriminated against, two groups form for an inevitable clash: ..
+
 HD Stream &#128250; {{ item.name|delimiter }} {{ item.releasedYear }}
-Download {{ item.name|delimiter }} {{ arraySlice('1', item.persons, 'name')|comma|delimiter }} {{ item.releasedYear }}
+//HD Stream 📺 X-Men - 2000
+
+Download {{ item.name|delimiter }} {{ arraySlice('2', item.countries, 'name')|comma|delimiter }} {{ item.releasedYear|delimiter }} {{ arraySlice('3', item.genres, 'name')|comma }}
+//Download X-Men. USA. 2000. Action, Adventure, Sci-Fi
+
 https://google.com?q={{ ('Download ' ~ item.name)|url_encode }}
+//https://google.com?q=Download%20X-Men
 ```
