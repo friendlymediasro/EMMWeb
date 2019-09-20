@@ -39,11 +39,11 @@ app_book:
       default_image_file: 'book.png'
       external_images: true
       structured_data: true
-      title: "Download &#128213; {{ item.name|delimiter }} {{ arraySlice('1', item.persons, 'name')|delimiter }} {{ item.releasedYear }}"
+      title: "Download &#128213; {{ item.name|delimiter }} {{ arraySlice('1', item.persons, 'name')|comma|delimiter }} {{ item.releasedYear }}"
       title_options:
         delimiter: ' - '
         remove_delimiter_if_last: true
-      description: "&#128214; Read/download {{ item.name|delimiter }} {{ arraySlice('2', item.persons, 'name')|delimiter }} {{ arraySlice('3', item.genres, 'name')|delimiter }} {{ trimOnWord('24', item.description)|delimiter }}"
+      description: "&#128214; Read/download {{ item.name|delimiter }} {{ arraySlice('2', item.persons, 'name')|comma|delimiter }} {{ arraySlice('3', item.genres, 'name')|comma|delimiter }} {{ trimOnWord('24', item.description)|delimiter }}"
       description_options:
         delimiter: '. '
         remove_delimiter_if_last: false
