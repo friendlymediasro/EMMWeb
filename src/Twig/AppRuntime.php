@@ -233,15 +233,20 @@ class AppRuntime implements RuntimeExtensionInterface
 		return '';
 	}
 
+
 	/**
-	 * @param int   $limit
-	 * @param array $array
-	 * @param null  $key
-	 * @return string
+	 * @param int        $limit
+	 * @param array|null $array
+	 * @param null       $key
+	 * @return array
 	 * @throws \Exception
 	 */
-	public function arraySlice(int $limit, array $array, $key = null)
+	public function arraySlice(int $limit, ?array $array, $key = null)
 	{
+		if (null === $array) {
+			return [];
+		}
+
 		if ((count($array) !== count($array, COUNT_RECURSIVE)) && $key === null) {
 			throw new \Exception('Key must be specified for multidimensional arrays.');
 		}
