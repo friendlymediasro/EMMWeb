@@ -41,8 +41,8 @@ Returns simple array.
 ```twig
 {{ arraySlice('2', ["Morocco", "Italy", "USA", "Serbia"]) }}
 {# ["Morocco", "Italy"] #}
-    
-{{ arraySlice('2', [["id" => 1, "name" => "Action"], ["id" => 2, "name" => "Drama"], ["id" => 8, "name" => "Adventure"]], 'name') }}
+
+{{ arraySlice('2', [{"id":1, "name":"Action"}, {"id":2, "name":"Drama"}, {"id":8, "name":"Adventure"}], 'name') }}
 {# ["Action", "Drama"] #}
 ```
 #### renderIfEverythingIsNotEmpty(template, variables)
