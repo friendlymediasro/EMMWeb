@@ -34,7 +34,7 @@ trait ApiConnect
 			],
 		]);
 
-		$response = $httpClient->request('GET', 'https://devel-uhrin.affwebgen.com/api', ['query' => $parameters,]);
+		$response = $httpClient->request('GET', 'https://affwebgen.com/api', ['query' => $parameters,]);
 		$decodedResponse = $response->toArray();
 		if (isset($decodedResponse['error'])) {
 			throw new Exception(sprintf('API: returned error - %s', $decodedResponse['error']));
