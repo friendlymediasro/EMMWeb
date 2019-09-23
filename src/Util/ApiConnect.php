@@ -4,6 +4,7 @@ namespace EMMWeb\Util;
 
 use Exception;
 use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
@@ -14,22 +15,26 @@ trait ApiConnect
 {
 
 	/**
-	 * @param array $parameters
+	 * @param array  $parameters
+	 * @param string $host
 	 * @return array
 	 * @throws ClientExceptionInterface
+	 * @throws DecodingExceptionInterface
 	 * @throws RedirectionExceptionInterface
 	 * @throws ServerExceptionInterface
 	 * @throws TransportExceptionInterface
 	 * @throws Exception
-	 * @throws DecodingExceptionInterface
 	 */
-	public function getAPIResponse(array $parameters): array
+	public function getAPIResponse(array $parameters, string $host): array
 	{
 		$httpClient = HttpClient::create([
-			'headers' => ['X-AUTH-API' => $this->getParameter('app_auth_key')],
+			'headers' => [
+				'X-AUTH-API' => $this->getParameter('app_auth_key'),
+				'Referer' => $host,
+			],
 		]);
 
-		$response = $httpClient->request('GET', 'https://affwebgen.com/api', ['query' => $parameters,]);
+		$response = $httpClient->request('GET', 'https://devel-uhrin.affwebgen.com/api', ['query' => $parameters,]);
 		$decodedResponse = $response->toArray();
 		if (isset($decodedResponse['error'])) {
 			throw new Exception(sprintf('API: returned error - %s', $decodedResponse['error']));
@@ -39,18 +44,19 @@ trait ApiConnect
 	}
 
 	/**
-	 * @param $APIParameters
+	 * @param         $APIParameters
+	 * @param Request $request
 	 * @return array
 	 * @throws ClientExceptionInterface
+	 * @throws DecodingExceptionInterface
 	 * @throws RedirectionExceptionInterface
 	 * @throws ServerExceptionInterface
 	 * @throws TransportExceptionInterface
-	 * @throws DecodingExceptionInterface
 	 */
-	public function getParameters($APIParameters)
+	public function getParameters($APIParameters, Request $request)
 	{
 		if (null !== $APIParameters) {
-			return $this->getAPIResponse($APIParameters);
+			return $this->getAPIResponse($APIParameters, $request->getHost());
 		}
 		else {
 			return [];
