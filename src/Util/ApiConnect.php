@@ -56,7 +56,7 @@ trait ApiConnect
 	public function getParameters($APIParameters, Request $request)
 	{
 		if (null !== $APIParameters) {
-			return $this->getAPIResponse($APIParameters, $request->getHost());
+			return $this->getAPIResponse($APIParameters, $request->getBaseUrl());
 		}
 		else {
 			return [];
