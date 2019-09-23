@@ -2,7 +2,6 @@
 
 namespace EMMWeb\Controller;
 
-use Hracik\CreateAvatar\CreateAvatar;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
