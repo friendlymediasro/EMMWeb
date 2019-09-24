@@ -15,8 +15,8 @@ trait ApiConnect
 {
 
 	/**
-	 * @param array  $parameters
-	 * @param string $host
+	 * @param array   $parameters
+	 * @param Request $request
 	 * @return array
 	 * @throws ClientExceptionInterface
 	 * @throws DecodingExceptionInterface
@@ -25,12 +25,13 @@ trait ApiConnect
 	 * @throws TransportExceptionInterface
 	 * @throws Exception
 	 */
-	public function getAPIResponse(array $parameters, string $host): array
+	public function getAPIResponse(array $parameters, Request $request): array
 	{
 		$httpClient = HttpClient::create([
 			'headers' => [
 				'X-AUTH-API' => $this->getParameter('app_auth_key'),
-				'Referer' => $host,
+				'REFERER' => $request->getHttpHost(),
+				'USER-AGENT' => $request->headers->has('user-agent') ? $request->headers->get('user-agent') : '',
 			],
 		]);
 
@@ -56,7 +57,7 @@ trait ApiConnect
 	public function getParameters($APIParameters, Request $request)
 	{
 		if (null !== $APIParameters) {
-			return $this->getAPIResponse($APIParameters, $request->getHttpHost());
+			return $this->getAPIResponse($APIParameters, $request);
 		}
 		else {
 			return [];
