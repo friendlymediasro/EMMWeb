@@ -400,7 +400,7 @@ class AppRuntime implements RuntimeExtensionInterface
 		//cleanup from unused/empty variables and spaces they could add
 		$content = trim(preg_replace('/\s+/', ' ', $content));
 
-		return new Markup(html_entity_decode($content), 'UTF-8'); //unicode/html support
+		return new Markup(html_entity_decode($content, ENT_NOQUOTES), 'UTF-8'); //unicode/html support
 	}
 
 	/**
