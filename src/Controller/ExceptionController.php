@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
 use Twig\Environment;
 use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Loader\ExistsLoaderInterface;
 
 /**
@@ -45,8 +47,8 @@ class ExceptionController
 	 * @return Response
 	 *
 	 * @throws LoaderError
-	 * @throws \Twig\Error\RuntimeError
-	 * @throws \Twig\Error\SyntaxError
+	 * @throws RuntimeError
+	 * @throws SyntaxError
 	 */
     public function show(Request $request, FlattenException $exception, DebugLoggerInterface $logger = null)
     {
