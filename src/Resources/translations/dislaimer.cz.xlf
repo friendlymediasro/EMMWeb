@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="cz" trgLang="cz">
+  <file id="disclaimer.cz">
+    <unit id="disclaimer">
+      <segment>
+        <source>disclaimer.title</source>
+        <target>Zřeknutí se odpovědnosti</target>
+      </segment>
+      <segment>
+        <source>disclaimer.heading</source>
+        <target>Zřeknutí se odpovědnosti pro %app_name%</target>
+      </segment>
+      <segment>
+        <source>disclaimer.html</source>
+        <target><![CDATA[<p>Pokud potřebujete další informace nebo máte jakékoli dotazy týkající se vyloučení odpovědnosti na našich stránkách, neváhejte nás kontaktovat.</p>
+    <h3><strong>Zřeknutí se odpovědnosti pro %app_website_name%</strong></h3>
+    <p>Všechny informace na tomto webu - %app_website_url% - jsou zveřejňovány v dobré víře a pouze pro obecné informační účely. %app_website_name% neposkytuje žádné záruky ohledně úplnosti, spolehlivosti a přesnosti těchto informací. Jakákoli akce, kterou podniknete na základě informací, které najdete na tomto webu (%app_website_name%), je přísně na vaše vlastní riziko. %app_website_name% nebude odpovídat za žádné ztráty nebo škody v souvislosti s používáním našich webových stránek.</p>
+    <p>Z našeho webu můžete navštívit další weby sledováním hypertextových odkazů na takové externí weby. Přestože se snažíme poskytovat pouze kvalitní odkazy na užitečné a etické weby, nemáme kontrolu nad obsahem a povahou těchto stránek. Tyto odkazy na jiné webové stránky neznamenají doporučení pro veškerý obsah nalezený na těchto stránkách. Majitelé stránek a obsah se mohou změnit bez předchozího upozornění a mohou nastat dříve, než budeme mít příležitost odstranit odkaz, který by mohl být „špatný“.</p>
+    <p>Mějte také na paměti, že když opustíte náš web, mohou mít jiné weby odlišné zásady ochrany osobních údajů a podmínky, které jsou mimo naši kontrolu. Před zahájením jakékoli obchodní činnosti nebo nahráním jakýchkoli informací si zkontrolujte zásady ochrany osobních údajů těchto webů a jejich „smluvní podmínky“.</p>
+    <h3><strong>Souhlas</strong></h3>
+    <p>Používáním naší webové stránky tímto vyjadřujete souhlas s naším zřeknutím se odpovědnosti a souhlasíte s jeho podmínkami. </p>
+    <h3><strong>Aktualizace</strong></h3>
+    <p>Pokud bychom v tomto dokumentu aktualizovali, pozměnili nebo provedli jakékoli změny, tyto změny budou na tomto místě zvýrazněny.</p>]]>
+        </target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

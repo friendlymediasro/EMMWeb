@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="cz" trgLang="cz">
+  <file id="terms.cz">
+    <unit id="terms">
+      <segment>
+        <source>terms.title</source>
+        <target>Pravidla a podmínky</target>
+      </segment>
+      <segment>
+        <source>terms.heading</source>
+        <target>Pravidla a podmínky</target>
+      </segment>
+      <segment>
+        <source>terms.html</source>
+        <target><![CDATA[<p>Tyto podmínky uvádějí pravidla a předpisy pro používání %app_name% webu, nacházíjíceho se na %app_website_url%.</p>
+    <p>Vstupem na tento web předpokládáme, že souhlasíte s těmito podmínkami. Pokud nebudete souhlasit s dodržováním všech smluvních podmínek uvedených na této stránce, nepokračujte v používání %app_website_name%.</p>
+    <p>Následující terminologie se vztahuje na tyto smluvní podmínky, prohlášení o ochraně osobních údajů a prohlášení o vyloučení odpovědnosti a na všechny dohody: „klient“, „vy“ a „váš“ se na vás vztahuje, osoba se přihlásí na tento web a je v souladu se smluvními podmínkami společnosti. „Společnost“, „My sami“, „My“, „Naše“ a „Nás“ se vztahují k naší společnosti. „Strana“, „Strany“ nebo „Nás“ se vztahuje na Klienta i na nás. Všechny podmínky se vztahují na nabídku, přijetí a úhradu nezbytnou k provedení procesu naší pomoci Klientovi nejvhodnějším způsobem za výslovným účelem uspokojení jeho potřeb v souvislosti s poskytováním uvedených služeb Společnosti v souladu s a podléhají převládajícímu nizozemskému právu. Jakékoli použití výše uvedené terminologie nebo jiných slov v jednotném, množném čísle, velkých písmenech a / nebo v nich, je považováno za zaměnitelné, a proto se na ně odkazuje.</p>
+    <h3><strong>Cookies</strong></h3>
+    <p>Přístupem na %app_website_name%, jste souhlasili s používáním cookies v souladu s Zásadami ochrany osobních údajů %app_name%.</p>
+    <p>Většina interaktivních webů používá soubory cookie, které nám umožňují získat podrobnosti o uživateli pro každou návštěvu. Naše webové stránky používají soubory cookie, aby umožnily funkčnost určitých oblastí a usnadnily tak lidem navštěvující naše webové stránky. Někteří z našich přidružených / reklamních partnerů mohou také používat cookies.</p>
+    <h3><strong>Licence</strong></h3>
+    <p>Pokud není uvedeno jinak, %app_name% a / nebo její poskytovatelé licencí vlastní práva duševního vlastnictví pro veškerý materiál na %app_website_name%. Všechna práva duševního vlastnictví jsou vyhrazena. K tomu máte přístup z %app_website_name% pro vlastní osobní potřebu podléhající omezením stanoveným v těchto podmínkách.</p>
+    <p>Nesmíte:</p>
+    <ul>
+        <li>Znovu publikovat materiál z %app_website_name%</li>
+        <li>Prodávat, pronajímat nebo sublicencovat materiál od %app_website_name%</li>
+        <li>Reprodukovat, duplikovat nebo kopírovat materiál z %app_website_name%</li>
+        <li>Redistribuovat obsah z %app_website_name%</li>
+    </ul>
+    <p>Tato dohoda začíná dnem této smlouvy.</p>
+    <p>Části tohoto webu nabízejí uživatelům příležitost zveřejňovat a vyměňovat si názory a informace v určitých oblastech webu. %app_name% nefiltruje, neupravuje, nepublikuje ani nekontroluje komentáře před jejich přítomností na webu. Komentáře neodrážejí názory %app_name%, jeho agentů a / nebo přidružených společností. Komentáře odrážejí názory a názory osoby, která zveřejňuje jejich názory. V rozsahu povoleném platnými zákony, %app_name% neodpovídá za Komentáře nebo za jakoukoli odpovědnost, škody nebo výdaje způsobené a / nebo vzniklé v důsledku jakéhokoli použití a / nebo zveřejnění a / nebo vzhledu Komentářů. na tomto webu.</p>
+    <p>%app_name% vyhrazuje si právo sledovat všechny komentáře a odstranit veškeré komentáře, které lze považovat za nevhodné, urážlivé nebo způsobující porušení těchto podmínek.</p>
+    <p>Zaručujete to a zastupujete to:</p>
+    <ul>
+        <li>Jste oprávněni zveřejňovat komentáře na našem webu a mít k tomu všechny potřebné licence a souhlasy;</li>
+        <li>Komentáře neinvestují do žádného práva duševního vlastnictví, mimo jiné včetně autorských práv, patentů nebo ochranných známek jakékoli třetí strany;</li>
+        <li>Komentáře neobsahují pomlouvačný, urážlivý, urážlivý, nemravný nebo jinak nezákonný materiál, který narušuje soukromí.</li>
+        <li>Komentáře nebudou použity k nabízení nebo propagaci obchodních nebo obvyklých nebo prezentovaných obchodních nebo nezákonných aktivit.</li>
+    </ul>
+    <p>Tímto udělujete %app_name% nevýhradní licenci k používání, reprodukci, úpravám a zmocnění ostatních k použití, reprodukci a úpravám jakýchkoli vašich komentářů ve všech formách, formátech nebo médiích.</p>
+    <h3><strong>Hyperlinking na náš obsah</strong></h3>
+    <p>Následující organizace mohou odkazovat na náš web bez předchozího písemného souhlasu:</p>
+    <ul>
+        <li>Vyhledávače;</li>
+        <li>Zpravodajské organizace;</li>
+        <li>Distributoři online adresářů mohou odkazovat na naši webovou stránku stejným způsobem, jako odkazují na webové stránky jiných společností; a</li>
+        <li>Akreditované firmy v rámci celého systému, kromě nabízení neziskových organizací, charitativních nákupních center a charitativních fundraisingových skupin, které nemusí odkazovat na náš web.</li>
+    </ul>
+    <p>Tyto organizace mohou odkazovat na naši domovskou stránku, na publikace nebo na jiné informace na webových stránkách, pokud odkaz: (a) není žádným způsobem klamný; b) nepravdivě neznamená sponzorství, potvrzení nebo schválení spojující strany a jejích produktů a / nebo služeb; a (c) zapadá do kontextu stránky propojující strany.</p>
+    <p>Můžeme zvážit a schválit další žádosti o propojení následujících typů organizací:</p>
+    <ul>
+        <li>běžně známé zdroje spotřebitelských a obchodních informací;</li>
+        <li>dot.com komunitní stránky;</li>
+        <li>sdružení nebo jiné skupiny zastupující charitu;</li>
+        <li>online distributoři adresářů;</li>
+        <li>internetové portály;</li>
+        <li>účetní, právní a poradenské firmy; a</li>
+        <li>vzdělávací instituce a obchodní sdružení.</li>
+    </ul>
+    <p>Žádosti o propojení od těchto organizací schválíme, pokud se rozhodneme, že: a) spojení by nás nepůsobilo nepříznivě na sebe nebo na naše akreditované podniky; b) organizace s námi nemá žádné negativní záznamy; (c) výhoda viditelnosti hypertextového odkazu pro nás kompenzuje nepřítomnost %app_name%; a (d) odkaz je v kontextu obecných informací o zdroji.</p>
+    <p>Tyto organizace mohou odkazovat na naši domovskou stránku, pokud odkaz: (a) není žádným způsobem klamný; b) nepravdivě neznamená sponzorství, potvrzení nebo schválení spojující strany a jejích produktů nebo služeb; a (c) zapadá do kontextu stránky propojující strany.</p>
+    <p>Pokud jste jednou z organizací uvedených v odstavci 2 výše a máte zájem o propojení s naším webem, musíte nás o tom informovat zasláním e-mailu na adresu %app_name%. Uveďte prosím své jméno, název vaší organizace, kontaktní informace a adresu URL vašeho webu, seznam všech adres URL, z nichž chcete odkazovat na náš web, a seznam adres URL na našem webu, ke kterým byste chtěli odkaz. Počkejte 2-3 týdny na odpověď.</p>
+    <p>Schválené organizace mohou hypertextový odkaz na náš web takto:</p>
+    <ul>
+        <li>Používáním našeho obchodního jména; nebo</li>
+        <li>Použitím jednotného vyhledávače zdrojů, ke kterému je připojen; nebo</li>
+        <li>Použitím jakéhokoli jiného popisu našeho webu, na který je odkazováno, to dává smysl v kontextu a formátu obsahu na stránce propojující strany.</li>
+    </ul>
+    <p>Pro propojení bez licenční smlouvy na ochranné známky nebude dovoleno používat logo %app_name% nebo jiné umělecké dílo.</p>
+    <h3><strong>iFrames</strong></h3>
+    <p>Bez předchozího souhlasu a písemného souhlasu nesmíte vytvářet iFramy kolem našich webových stránek, které jakýmkoli způsobem mění vizuální prezentaci nebo vzhled našich webových stránek.</p>
+    <h3><strong>Odpovědnost za obsah</strong></h3>
+    <p>Neodpovídáme za žádný obsah, který se objeví na vašem webu. Souhlasíte s tím, že nás budete chránit a bránit před všemi tvrzeními, která na vašem webu rostou. Na žádné webové stránky by se neměly objevit žádné odkazy, které mohou být interpretovány jako urážlivé, obscénní nebo trestné, nebo které porušují, jinak porušují nebo obhajují porušení nebo jiné porušení práv třetích stran.</p>
+    <h3><strong>Vaše soukromí</strong></h3>
+    <p>Prosím, přečtěte <a href="%pathPrivacy%">Zásady ochrany osobních údajů</a>.</p>
+    <h3><strong>Výhrada práv</strong></h3>
+    <p>Vyhrazujeme si právo požádat o odstranění všech odkazů nebo jakéhokoli konkrétního odkazu na náš web. Souhlasíte s tím, že na požádání okamžitě odstraníte všechny odkazy na náš web. Vyhrazujeme si také právo tyto podmínky a zásady týkající se propojení kdykoli změnit. Neustálým odkazem na náš web souhlasíte s tím, že budete vázáni a budete se řídit těmito podmínkami propojení.</p>
+    <h3><strong>Odstranění odkazů z našich webových stránek</strong></h3>
+    <p>Pokud na našem webu najdete nějaký odkaz, který je z jakéhokoli důvodu urážlivý, můžete nás kdykoli kontaktovat a informovat nás. Budeme posuzovat žádosti o odstranění odkazů, ale nejsme povinni tak či tak reagovat přímo na vás.</p>
+    <p>Nezaručujeme, že informace na tomto webu jsou správné, nezaručujeme jejich úplnost nebo správnost; neslibujeme ani zajistit, aby web zůstal k dispozici nebo aby byl materiál na tomto webu aktuální.</p>
+    <h3><strong>Zřeknutí se odpovědnosti</strong></h3>
+    <p>V maximální míře povolené platnými zákony vylučujeme veškerá prohlášení, záruky a podmínky týkající se našich webových stránek a jejich používání. Nic v tomto vyloučení odpovědnosti nebude:</p>
+    <ul>
+        <li>omezit nebo vyloučit naši nebo vaši odpovědnost za smrt nebo zranění;</li>
+        <li>omezit nebo vyloučit naši nebo vaši odpovědnost za podvod nebo podvodné nepravdivé prohlášení;</li>
+        <li>omezit jakoukoli z našich nebo vašich závazků jakýmkoli způsobem, který není povolen platnými zákony; nebo</li>
+        <li>vyloučit jakoukoli z našich nebo vašich závazků, které nemusí být vyloučeny podle platných zákonů.</li>
+    </ul>
+    <p>Omezení a zákazy odpovědnosti stanovené v tomto oddíle a jinde v tomto prohlášení o vyloučení odpovědnosti: (a) podléhají předchozímu odstavci; a (b) řídí všechny závazky vzniklé na základě zřeknutí se odpovědnosti, včetně závazků vyplývajících ze smlouvy, deliktu a porušení zákonné povinnosti.</p>
+    <p>Dokud bude web a informace a služby na tomto webu poskytovány zdarma, neneseme odpovědnost za žádné ztráty ani škody jakékoli povahy.</p>]]>
+        </target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

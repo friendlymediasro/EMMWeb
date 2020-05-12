@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="cz" trgLang="cz">
+  <file id="dmca.cz">
+    <unit id="dmca">
+      <segment>
+        <source>dmca.title</source>
+        <target>Pokyny pro oznamování porušení autorských práv podle zákona DMCA / autorských práv</target>
+      </segment>
+      <segment>
+        <source>dmca.heading</source>
+        <target>Pokyny pro oznamování porušení autorských práv podle zákona DMCA / autorských práv</target>
+      </segment>
+      <segment>
+        <source>dmca.paragraph0.html</source>
+        <target>Chcete-li nahlásit obsah porušující nebo urážlivý, můžete použít e-mailovou adresu %email%.</target>
+      </segment>
+      <segment>
+        <source>dmca.paragraph1.html</source>
+        <target><![CDATA[<b>DMCA</b>. Je %app_name% povinností reagovat
+           na oznámení o údajném porušení, které je v souladu s DMCA.  Pokud jste vlastníkem autorských práv nebo jeho agentem,
+           a domníváte se, že jakýkoli obsah hostovaný na %app_website_name% porušuje
+           vaše autorská práva, můžete podat oznámení podle DMCA poskytnutím %app_name%
+          veškerými informacemi v písemné formě:]]>
+        </target>
+      </segment>
+      <segment>
+        <source>dmca.paragraph2.html</source>
+        <target><![CDATA[%app_name% pro přijímání oznámení o domnělém porušení může
+           být dosaženo následujícím způsobem:<br><br>
+          Email: %email%<br>
+          Měla by být zasílána pouze oznámení týkající se DMCA %app_name%.]]>
+        </target>
+      </segment>
+      <segment>
+        <source>dmca.paragraph3.html</source>
+        <target>Pokud nesplníte všechny požadavky zákona DMCA pro oznámení, nemusíme na vaši komunikaci jednat.</target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item0.html</source>
+        <target>Fyzický nebo elektronický podpis osoby oprávněné jednat jménem vlastníka
+           výhradního práva, které je údajně porušeno;</target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item1.html</source>
+        <target>Identifikace díla chráněného autorskými právy, u kterého se tvrdí, že bylo porušeno, nebo, je-li více
+           na díla chráněná autorskými právy na %app_website_name% se vztahuje jedno oznámení,
+            reprezentativní seznam takových děl na %app_website_name%;</target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item2.html</source>
+        <target>Identifikace materiálu, o kterém se tvrdí, že porušuje autorská práva nebo je předmětem
+           protiprávní činnosti, která má být odstraněna nebo k nim má přístup
+           je třeba deaktivovat a informace přiměřeně dostatečné pro %app_name%
+           lokalizovat materiál;</target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item3.html</source>
+        <target>Informace přiměřeně dostatečné k tomu, aby umožnily %app_name% kontaktovat stěžující stranu,
+           jako je adresa, telefonní číslo a případně e-mailovou adresu, na které lze stěžovatele kontaktovat;</target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item4.html</source>
+        <target><![CDATA[Prohlášení, že stěžovatel v dobré víře prohlašuje, že použití materiálu
+           způsobem, na který je stížnost podána, není autorizováno vlastníkem autorských práv,
+           jeho agentem nebo zákonem (<i>například</i>, „Jsem v dobré víře
+           přesvědčení, že použití obsahu chráněného autorskými právy je zde uvedeno
+           není autorizován vlastníkem autorských práv, jeho zástupcem ani zákonem. “);
+          a]]></target>
+      </segment>
+      <segment>
+        <source>dmca.list0.item5.html</source>
+        <target><![CDATA[Prohlášení, že informace v oznámení jsou přesné a podléhají sankci
+           křivé přísahy, že žalující strana je oprávněna jednat jménem
+           vlastníka výhradního práva, které je údajně porušeno (<i> pro
+             příklad </i>, „Přísahám, že pod trestem křivé přísahy jsou tyto informace
+           v tomto oznámení přesné a že jsem vlastníkem autorských práv,
+           nebo jsem oprávněn jednat jménem vlastníka autorských práv, zmíněných výše uvedeným obsahem. “).]]></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

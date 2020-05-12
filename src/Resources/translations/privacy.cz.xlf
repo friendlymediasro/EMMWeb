@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="cz" trgLang="cz">
+  <file id="privacy.cz">
+    <unit id="privacy">
+      <segment>
+        <source>privacy.title</source>
+        <target>Zásady ochrany osobních údajů</target>
+      </segment>
+      <segment>
+        <source>privacy.heading</source>
+        <target>Zásady ochrany osobních údajů pro %app_name%</target>
+      </segment>
+      <segment>
+        <source>privacy.html</source>
+        <target><![CDATA[<p>%app_name% provozuje %app_website_url% web, který poskytuje Službu.</p>
+    <p>Tato stránka slouží k informování návštěvníků webových stránek o našich zásadách týkajících se shromažďování, používání a zveřejňování osobních údajů, pokud se někdo rozhodl používat naši službu, %app_website_name%.</p>
+    <p>Pokud se rozhodnete používat naši službu, souhlasíte se shromažďováním a používáním informací v souvislosti s těmito zásadami. Osobní údaje, které shromažďujeme, se používají k poskytování a zlepšování služby. Vaše údaje nebudeme používat ani sdílet s nikým jiným, než jak je popsáno v těchto zásadách ochrany osobních údajů.</p>
+    <p>Podmínky použité v těchto zásadách ochrany osobních údajů mají stejný význam jako v našich smluvních podmínkách, které jsou přístupné na adrese %app_website_url%, pokud není v těchto zásadách ochrany osobních údajů stanoveno jinak.</p>
+    <h3><strong>Shromažďování a používání informací</strong></h3>
+    <p>Abychom vám mohli při používání naší služby lépe vyhovět, můžeme požadovat, abyste nám poskytli určité osobní identifikační údaje, mimo jiné vaše jméno, telefonní číslo a poštovní adresu. Informace, které shromažďujeme, budou použity k tomu, abychom vás kontaktovali nebo identifikovali.</p>
+    <h3><strong>Logovací data</strong></h3>
+    <p>Chceme vás informovat, že při každé návštěvě naší služby shromažďujeme informace, které nám váš prohlížeč zasílá a které se nazývají logovací data. Tato logovací data mohou zahrnovat informace, jako je adresa IP vašeho počítače, verze prohlížeče, stránky naší služby, které navštěvujete, čas a datum vaší návštěvy, čas strávený na těchto stránkách a další statistiky.</p>
+    <h3><strong>Cookies</strong></h3>
+    <p>Cookies jsou soubory s malým množstvím dat, které se běžně používají jako anonymní jedinečný identifikátor. Tyto jsou odesílány do vašeho prohlížeče z navštíveného webu a jsou uloženy na pevném disku vašeho počítače.</p>
+    <p>Naše webové stránky používají tyto „cookies“ ke shromažďování informací a ke zlepšení naší služby. Máte možnost tyto soubory cookie přijmout nebo odmítnout a vědět, kdy je soubor cookie odeslán do vašeho počítače. Pokud se rozhodnete odmítnout naše cookies, možná nebudete moci použít některé části naší služby.</p>
+    <h3><strong>Poskytovatelé služeb</strong></h3>
+    <p>Můžeme zaměstnávat společnosti třetích osob a jednotlivce z následujících důvodů:</p>
+    <ul>
+        <li>Pro usnadnění naší služby;</li>
+        <li>Pro poskytovaní služby v našem zastoupení;</li>
+        <li>Pro provádění služby související se službami; nebo</li>
+        <li>Pro pomoct pri analýze, jak je naše služba využívána.</li>
+    </ul>
+    <p>Chceme informovat naše uživatele služeb, že tyto třetí strany mají přístup k vašim osobním údajům. Důvodem je plnění úkolů, které jim byly přiděleny naším jménem. Jsou však povinni tyto informace nezveřejňovat ani používat pro žádný jiný účel.</p>
+    <h3><strong>Bezpečí</strong></h3>
+    <p>Vážíme si vaší důvěry v poskytování osobních údajů, a proto se snažíme používat komerčně přijatelné prostředky k jejich ochraně. Nezapomeňte však, že žádný způsob přenosu přes internet nebo způsob elektronického ukládání není 100% bezpečný a spolehlivý a nemůžeme zaručit jeho absolutní bezpečnost.</p>
+    <h3><strong>Odkazy na jiné stránky</strong></h3>
+    <p>Naše služba může obsahovat odkazy na jiné weby. Pokud kliknete na odkaz třetí strany, budete přesměrováni na tento web. Tyto externí weby nejsou provozovány námi. Proto vám důrazně doporučujeme přečíst si zásady ochrany osobních údajů těchto webových stránek. Nemáme žádnou kontrolu nad a nepřebíráme žádnou odpovědnost za obsah, zásady ochrany osobních údajů ani praktiky jiných webů nebo služeb třetích stran.</p>
+    <p>Soukromí dětí</p>
+    <p>Naše služby neadresují nikoho mladšího 13 let. Vědomě neshromažďujeme osobní identifikační údaje od dětí mladších 13 let. V případě, že zjistíme, že nám dítě mladší 13 let poskytlo osobní údaje, okamžitě je odstraníme z našich serverů. Pokud jste rodič nebo zákonný zástupce a víte, že vaše dítě nám poskytlo osobní údaje, kontaktujte nás, abychom mohli provést nezbytná opatření.</p>
+    <h3><strong>Změny těchto zásad ochrany osobních údajů</strong></h3>
+    <p>Můžeme občas aktualizovat naše zásady ochrany osobních údajů. Proto vám doporučujeme, abyste tuto stránku pravidelně kontrolovali kvůli případným změnám. Budeme vás informovat o všech změnách zveřejněním nových Zásad ochrany osobních údajů na této stránce. Tyto změny jsou účinné okamžitě po jejich zveřejnění na této stránce.</p>
+    <h3><strong>Kontaktujte nás</strong></h3>
+    <p>Pokud máte nějaké dotazy nebo návrhy týkající se našich zásad ochrany osobních údajů, neváhejte nás kontaktovat.</p>]]>
+        </target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

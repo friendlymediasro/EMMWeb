@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="cz" trgLang="cz">
+  <file id="error.cz">
+    <unit id="error">
+      <segment>
+        <source>error.title</source>
+        <target>Vyskytla se chyba: %status_text%</target>
+      </segment>
+      <segment>
+        <source>error.heading</source>
+        <target>Jejda! Vyskytla se chyba</target>
+      </segment>
+      <segment>
+        <source>error.subheading0</source>
+        <target>Server vrátil "%status_code% %status_text%".</target>
+      </segment>
+      <segment>
+        <source>error.paragraph0</source>
+        <target>
+          Něco je rozbité. Dejte nám vědět, co jste dělali, když došlo k této chybě.
+           Opravíme to co nejdříve. Omlouváme se za případné nepříjemnosti.
+        </target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
